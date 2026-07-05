@@ -1,0 +1,89 @@
+/* Typography */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Body Text */
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--fs-md);
+    font-weight: var(--fw-regular);
+    color: var(--text-primary);
+    background: var(--background-color);
+    line-height: 1.6;
+}
+
+
+/* Headings */
+
+h1 {
+    font-size: var(--fs-3xl);
+    font-weight: var(--fw-bold);
+}
+
+h2 {
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-semibold);
+}
+
+h3 {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-semibold);
+}
+
+h4 {
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-medium);
+}
+
+h5 {
+    font-size: var(--fs-md);
+    font-weight: var(--fw-medium);
+}
+
+h6 {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+}
+
+
+/* Paragraphs */
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+
+/* Links */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Lists */
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+/* image */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Forms */
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
