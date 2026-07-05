@@ -1,0 +1,56 @@
+/* Global Styles */
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+}
+
+
+/* Container */
+
+.container {
+    width: min(90%, var(--container-width));
+    margin-inline: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: var(--transition-normal);
+}
+
+input,
+textarea,
+select {
+    outline: none;
+    border: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
