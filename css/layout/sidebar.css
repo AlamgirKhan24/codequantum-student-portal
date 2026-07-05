@@ -1,0 +1,113 @@
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--sidebar-color);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    box-shadow: var(--shadow-md);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: var(--space-2xl);
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.logo-text h1 {
+    color: var(--white-color);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.logo-text p {
+    color: #94a3b8;
+    font-size: .9rem;
+}
+
+.atom-logo {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+.atom-logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes floatLogo {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.menu-title {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    padding-left: 12px;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.navigation a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    color: var(--white-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition-normal);
+}
+
+.navigation a:hover {
+    background-color: var(--primary-color);
+}
+
+.navigation a.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.logout {
+    margin-top: auto;
+}
+
+.logout button {
+    width: 100%;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    transition: var(--transition-normal);
+}
+
+.logout button:hover {
+    opacity: .9;
+}
