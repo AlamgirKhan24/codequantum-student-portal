@@ -1,0 +1,82 @@
+:root {
+    --primary-color: #4F46E5;
+    --secondary-color: #06B6D4;
+    --success-color: #22C55E;
+    --warning-color: #F59E0B;
+    --danger-color: #EF4444;
+    --white-color: #FFFFFF;
+    --background-color: #F8FAFC;
+    --sidebar-color: #1E293B;
+    --text-primary: #0F172A;
+    --text-secondary: #64748B;
+    /* ==========================
+       TYPOGRAPHY
+    ========================== */
+    --font-family-primary: "Poppins", sans-serif;
+    --fs-xs: 12px;
+    --fs-sm: 14px;
+    --fs-md: 16px;
+    --fs-lg: 18px;
+    --fs-xl: 24px;
+    --fs-2xl: 32px;
+    --fs-3xl: 48px;
+    /* ==========================
+       FONT WEIGHT
+    ========================== */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    /* ==========================
+       SPACING
+    ========================== */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 80px;
+    /* ==========================
+       BORDER RADIUS
+    ========================== */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-round: 50%;
+    /* ==========================
+       SHADOWS
+    ========================== */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, .08);
+    --shadow-md: 0 6px 12px rgba(0, 0, 0, .12);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, .16);
+    /* ==========================
+       TRANSITIONS
+    ========================== */
+    --transition-fast: .2s ease;
+    --transition-normal: .3s ease;
+    --transition-slow: .5s ease;
+    /* ==========================
+       Z-INDEX
+    ========================== */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal: 400;
+    --z-tooltip: 500;
+    /* ==========================
+       LAYOUT
+    ========================== */
+    --sidebar-width: 280px;
+    --header-height: 80px;
+    --container-width: 1400px;
+    /* ==========================
+       COMPONENT SIZES
+    ========================== */
+    --button-height: 48px;
+    --input-height: 48px;
+    --card-radius: 16px;
+}
