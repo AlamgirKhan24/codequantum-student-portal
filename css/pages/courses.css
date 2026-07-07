@@ -257,3 +257,60 @@
 .continue-btn:hover {
     background: #4f46e5;
 }
+
+.featured-course {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    margin-bottom: 35px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #ffffff;
+}
+
+.featured-content {
+    flex: 1;
+}
+
+.featured-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, .2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.featured-content h2 {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.featured-content p {
+    color: #eef2ff;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.featured-info {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.featured-info i {
+    margin-right: 8px;
+}
+
+.featured-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+}
