@@ -22,3 +22,60 @@
     grid-template-columns: 320px 1fr;
     gap: 30px;
 }
+
+.details-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+    border: 1px solid #e2e8f0;
+}
+
+.details-card .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.edit-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #6366f1;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.edit-btn:hover {
+    background: #4f46e5;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.detail-item {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.detail-item p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0f172a;
+}
