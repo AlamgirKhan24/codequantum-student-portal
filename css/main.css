@@ -5,6 +5,7 @@
 
 /* layout */
 
+@import url("./layout/layout.css");
 @import url("./layout/sidebar.css");
 @import url("./layout/header.css");
 

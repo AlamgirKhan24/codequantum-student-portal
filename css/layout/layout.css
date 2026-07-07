@@ -1,0 +1,23 @@
+/* ===========================================================
+   App Layout
+=========================================================== */
+
+.app {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* ===========================================================
+   Main Content
+=========================================================== */
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--background-color);
+}
