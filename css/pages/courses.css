@@ -38,3 +38,66 @@
     transform: translateY(-3px);
     opacity: .95;
 }
+
+.course-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.course-stat-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+    border: 1px solid #e2e8f0;
+    transition: .3s;
+}
+
+.course-stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, .15);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.total {
+    background: #6366f1;
+}
+
+.completed {
+    background: #10b981;
+}
+
+.progress {
+    background: #f59e0b;
+}
+
+.certificate {
+    background: #ef4444;
+}
+
+.stat-content h2 {
+    font-size: 30px;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.stat-content p {
+    color: #64748b;
+    font-size: 15px;
+}
