@@ -314,3 +314,74 @@
     align-items: center;
     font-size: 120px;
 }
+
+.activity-section {
+    margin-top: 45px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+    color: #0f172a;
+}
+
+.section-heading a {
+    color: #6366f1;
+    font-weight: 600;
+}
+
+.activity-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, .05);
+    transition: .3s;
+}
+
+.activity-card:hover {
+    transform: translateX(8px);
+}
+
+.activity-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.activity-icon.completed {
+    background: #10b981;
+}
+
+.activity-icon.progress {
+    background: #6366f1;
+}
+
+.activity-icon.certificate {
+    background: #f59e0b;
+}
+
+.activity-info h4 {
+    margin-bottom: 6px;
+    color: #0f172a;
+}
+
+.activity-info p {
+    color: #64748b;
+    font-size: 14px;
+}
