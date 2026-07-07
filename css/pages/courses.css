@@ -101,3 +101,49 @@
     color: #64748b;
     font-size: 15px;
 }
+
+.course-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.course-search {
+    flex: 1;
+    position: relative;
+}
+
+.course-search i {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.course-search input {
+    width: 100%;
+    padding: 15px 18px 15px 50px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    background: #ffffff;
+    transition: .3s;
+}
+
+.course-search input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, .15);
+}
+
+.course-filter select {
+    padding: 15px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 15px;
+}
