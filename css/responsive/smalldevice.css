@@ -1,0 +1,105 @@
+/*  */
+
+@media (max-width:576px) {
+    .course-card {
+        border-radius: 16px;
+    }
+    .course-meta {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .continue-btn {
+        width: 100%;
+    }
+}
+
+
+/* Small Device */
+
+@media (max-width:480px) {
+    .sidebar {
+        width: 240px;
+        left: -240px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .header {
+        padding: 15px;
+    }
+    .profile-info {
+        display: none;
+    }
+    .profile-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+    .featured-course {
+        padding: 20px;
+    }
+    .featured-content h2 {
+        font-size: 24px;
+    }
+    .featured-image {
+        width: 120px;
+        height: 120px;
+        font-size: 70px;
+    }
+    .course-card {
+        border-radius: 12px;
+    }
+}
+
+@media (max-width:480px) {
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
+@media (max-width:480px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media (max-width:480px) {
+    .header-left {
+        width: 100%;
+    }
+    .search-box {
+        width: 100%;
+    }
+}
+
+@media (max-width:480px) {
+    .profile-info {
+        display: none;
+    }
+}
+
+@media (max-width:480px) {
+    .profile .fa-chevron-down {
+        display: none;
+    }
+}
+
+@media (max-width:480px) {
+    .icon-button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width:480px) {
+    .header-right {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+}

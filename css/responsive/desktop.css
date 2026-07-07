@@ -1,0 +1,50 @@
+/* Desktop 1400 */
+
+@media (max-width:1400px) {
+    .main-content {
+        padding: 30px;
+    }
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .course-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* Desktop 1200 */
+
+@media (max-width:1200px) {
+    .course-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .featured-course {
+        gap: 30px;
+    }
+    .featured-content h2 {
+        font-size: 32px;
+    }
+}
+
+
+/* Desktop 992 */
+
+@media (max-width:1400px) {
+    .main-content {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+    }
+}
+
+@media (max-width:1200px) {
+    .course-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

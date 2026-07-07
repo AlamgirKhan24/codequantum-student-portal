@@ -14,3 +14,10 @@
 @import url("./pages/dashboard.css");
 @import url("./pages/profile.css");
 @import url("./pages/courses.css");
+
+/* responsive */
+
+@import url("./responsive/mobile.css");
+@import url("./responsive/tablet.css");
+@import url("./responsive/smalldevice.css");
+@import url("./responsive/desktop.css");
