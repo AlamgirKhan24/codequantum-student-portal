@@ -1,0 +1,221 @@
+.dashboard {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.welcome-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-text h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.welcome-text span {
+    color: #6366f1;
+    position: relative;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+    transition: all .35s ease;
+    cursor: pointer;
+    border: 1px solid #eef2f7;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(99, 102, 241, .15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    font-size: 24px;
+    color: white;
+}
+
+.students {
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+}
+
+.courses {
+    background: linear-gradient(135deg, #06B6D4, #3B82F6);
+}
+
+.assignments {
+    background: linear-gradient(135deg, #F59E0B, #F97316);
+}
+
+.attendance {
+    background: linear-gradient(135deg, #10B981, #22C55E);
+}
+
+.growth {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.positive {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.card-body h4 {
+    color: #64748B;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.card-body h2 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+.dashboard-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.activity-card,
+.schedule-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+    transition: all .3s ease;
+}
+
+.activity-card:hover,
+.schedule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(99, 102, 241, .12);
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-title h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.section-title a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.section-title a:hover {
+    color: #4338ca;
+}
+
+.activity-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.activity-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.activity-list li i {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: #6366f1;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.activity-list h4 {
+    font-size: 16px;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.activity-list p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.schedule-item {
+    padding: 18px;
+    border-radius: 16px;
+    background: #f8fafc;
+    margin-bottom: 18px;
+    transition: .3s;
+}
+
+.schedule-item:hover {
+    background: #eef2ff;
+    transform: translateX(6px);
+}
+
+.schedule-item h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+.schedule-item p {
+    color: #64748b;
+    font-size: 14px;
+}
