@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuantum Student Portal - Profile</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <div class="atom-logo">
+
+                    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+ 
+                        <!-- Orbit Rings -->
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#a78bfa"
+                            stroke-width="6"
+                            transform="rotate(60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#8b7ff0"
+                            stroke-width="6"
+                            transform="rotate(-60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#c7d2fe"
+                            stroke-width="4" />
+ 
+                        <!-- Electrons -->
+                        <circle cx="16" cy="118" r="9" fill="#7c3aed" />
+                        <circle cx="222" cy="82" r="9" fill="#5b6ee8" />
+ 
+                        <!-- Center -->
+                        <g transform="translate(120,100)">
+                            <text
+                                x="-38"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&lt;</text>
+ 
+                            <circle cx="0" cy="0" r="6" fill="#1e2144" />
+ 
+                            <text
+                                x="18"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&gt;</text>
+                        </g>
+ 
+                    </svg>
+
+                </div>
+
+                <div class="logo-text">
+                    <h1>CodeQuantum</h1>
+                    <p>Student Portal</p>
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <h3 class="menu-title">MENU</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html" class="active">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="assignments.html">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>Assignments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="attendance.html">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="timetable.html">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Timetable</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="results.html">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Results</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fees.html">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Fees</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="logout">
+
+                <button>
+ 
+                    <i class="fa-solid fa-right-from-bracket"></i>
+ 
+                    <span>Logout</span>
+ 
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!--  Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="header">
+
+                <!-- Header Left -->
+                <div class="header-left">
+
+                    <!-- Menu Button -->
+                    <button class="menu-toggle" aria-label="Open Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <!-- Search -->
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="search" placeholder="Search courses, assignments..." aria-label="Search">
+
+                    </div>
+
+                </div>
+
+                <!-- Header Right -->
+                <div class="header-right">
+
+                    <!-- Notifications -->
+                    <button class="icon-button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+
+                    <!-- Dark Mode -->
+                    <button class="icon-button" aria-label="Toggle Theme">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+
+                    <!-- Profile -->
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            UK
+                        </div>
+
+                        <div class="profile-info">
+                            <h4>Alamgir Khan</h4>
+                            <p>Frontend Student</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Profile -->
+            <section class="profile-page">
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
