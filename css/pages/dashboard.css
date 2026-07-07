@@ -284,3 +284,86 @@
     width: 70%;
     background: linear-gradient(90deg, #F59E0B, #F97316);
 }
+
+.assignments-section {
+    margin-top: 32px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+}
+
+.assignment-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 16px;
+    transition: .3s;
+    margin-top: 18px;
+    border: 1px solid transparent;
+}
+
+.assignment-card:hover {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    transform: translateX(6px);
+}
+
+.assignment-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.assignment-left i {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: white;
+    font-size: 22px;
+}
+
+.assignment-left h4 {
+    font-size: 17px;
+    margin-bottom: 6px;
+    color: #0f172a;
+}
+
+.assignment-left p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.assignment-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.status {
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.in-progress {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.pending {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.not-started {
+    background: #F3F4F6;
+    color: #374151;
+}
