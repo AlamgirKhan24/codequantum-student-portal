@@ -52,3 +52,35 @@
         max-width: 100%;
     }
 }
+
+
+/* Assignments Tablet */
+
+@media (max-width:991px) {
+    .assignment-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .assignment-search {
+        width: 100%;
+    }
+    .assignment-filter {
+        width: 100%;
+    }
+    .assignment-filter select {
+        width: 100%;
+    }
+    .assignment-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .assignments-grid {
+        grid-template-columns: 1fr;
+    }
+    .progress-section {
+        grid-template-columns: 1fr;
+    }
+    .activity-item {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+}

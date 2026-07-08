@@ -103,3 +103,56 @@
         justify-content: flex-end;
     }
 }
+
+
+/* Small Device */
+
+@media (max-width:480px) {
+    .assignment-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .assignment-header h3 {
+        font-size: 18px;
+    }
+    .assignment-description {
+        font-size: 14px;
+    }
+    .assignment-category {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .priority {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .status {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+    .progress-card {
+        padding: 18px;
+    }
+    .performance-score h1 {
+        font-size: 40px;
+    }
+    .activity-section {
+        padding: 20px;
+    }
+    .activity-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    .activity-content h4 {
+        font-size: 16px;
+    }
+    .activity-content p {
+        font-size: 13px;
+    }
+}

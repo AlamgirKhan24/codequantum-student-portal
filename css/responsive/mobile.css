@@ -67,3 +67,64 @@
         padding: 20px;
     }
 }
+
+
+/* Assignments Mobile */
+
+@media (max-width:767px) {
+    .assignment-stats {
+        grid-template-columns: 1fr;
+    }
+    .assignment-toolbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .assignment-search {
+        width: 100%;
+    }
+    .assignment-filter {
+        width: 100%;
+    }
+    .assignment-filter select {
+        width: 100%;
+    }
+    .assignments-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .assignment-card {
+        padding: 20px;
+    }
+    .assignment-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .assignment-header h3 {
+        font-size: 20px;
+    }
+    .assignment-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .assignment-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .progress-section {
+        grid-template-columns: 1fr;
+    }
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .activity-time {
+        margin-left: 0;
+    }
+}
