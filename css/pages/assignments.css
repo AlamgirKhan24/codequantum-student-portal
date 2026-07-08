@@ -1,0 +1,60 @@
+.assignment-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+
+.assignment-stat-card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+    transition: .3s;
+}
+
+.assignment-stat-card:hover {
+    transform: translateY(-6px);
+}
+
+.assignment-stat-card .stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+}
+
+.total {
+    background: #6366f1;
+}
+
+.submitted {
+    background: #10b981;
+}
+
+.pending {
+    background: #f59e0b;
+}
+
+.overdue {
+    background: #ef4444;
+}
+
+.assignment-stat-card h2 {
+    font-size: 30px;
+    color: #0f172a;
+    margin-bottom: 5px;
+}
+
+.assignment-stat-card p {
+    color: #64748b;
+}
