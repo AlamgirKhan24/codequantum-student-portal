@@ -189,3 +189,235 @@ attendance-page {
 .legend.today-box {
     background: #6366f1;
 }
+
+.attendance-history {
+    margin-top: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+thead th {
+    padding: 18px;
+    text-align: left;
+    font-size: 15px;
+    color: #475569;
+}
+
+tbody td {
+    padding: 18px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+tbody tr {
+    transition: .3s;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+.status {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status.present {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.absent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.status.leave {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.attendance-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.summary-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+}
+
+.summary-card .progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.summary-card .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #22c55e);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.goal-circle {
+    width: 140px;
+    height: 140px;
+    margin: 20px auto;
+    border: 8px solid #6366f1;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.goal-circle h1 {
+    font-size: 36px;
+    color: #6366f1;
+}
+
+.goal-circle p {
+    color: #64748b;
+}
+
+.streak-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.streak-box i {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff7ed;
+    color: #f97316;
+    border-radius: 18px;
+    font-size: 28px;
+}
+
+.streak-box h2 {
+    font-size: 32px;
+    color: #0f172a;
+}
+
+.streak-box p {
+    color: #64748b;
+}
+
+.attendance-activity {
+    margin-top: 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+    border-radius: 16px;
+    transition: .3s;
+}
+
+.activity-item:hover {
+    background: #f8fafc;
+}
+
+.activity-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.present-icon {
+    background: #10b981;
+}
+
+.report-icon {
+    background: #3b82f6;
+}
+
+.streak-icon {
+    background: #f97316;
+}
+
+.award-icon {
+    background: #8b5cf6;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-content h4 {
+    margin-bottom: 6px;
+    color: #0f172a;
+}
+
+.activity-content p {
+    color: #64748b;
+}
+
+.activity-item span {
+    color: #94a3b8;
+    font-weight: 600;
+}
