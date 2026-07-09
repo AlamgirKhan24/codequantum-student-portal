@@ -1,0 +1,403 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance | CodeQuantum Student Portal</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <div class="atom-logo">
+
+                    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+ 
+                        <!-- Orbit Rings -->
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#a78bfa"
+                            stroke-width="6"
+                            transform="rotate(60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#8b7ff0"
+                            stroke-width="6"
+                            transform="rotate(-60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#c7d2fe"
+                            stroke-width="4" />
+ 
+                        <!-- Electrons -->
+                        <circle cx="16" cy="118" r="9" fill="#7c3aed" />
+                        <circle cx="222" cy="82" r="9" fill="#5b6ee8" />
+ 
+                        <!-- Center -->
+                        <g transform="translate(120,100)">
+                            <text
+                                x="-38"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&lt;</text>
+ 
+                            <circle cx="0" cy="0" r="6" fill="#1e2144" />
+ 
+                            <text
+                                x="18"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&gt;</text>
+                        </g>
+ 
+                    </svg>
+
+                </div>
+
+                <div class="logo-text">
+                    <h1>CodeQuantum</h1>
+                    <p>Student Portal</p>
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <h3 class="menu-title">MENU</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="assignments.html">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>Assignments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="attendance.html" class="active">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="timetable.html">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Timetable</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="results.html">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Results</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fees.html">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Fees</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="logout">
+
+                <button>
+ 
+                    <i class="fa-solid fa-right-from-bracket"></i>
+ 
+                    <span>Logout</span>
+ 
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!--  Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="header">
+
+                <!-- Header Left -->
+                <div class="header-left">
+
+                    <!-- Menu Button -->
+                    <button class="menu-toggle" aria-label="Open Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <!-- Search -->
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="search" placeholder="Search courses, assignments..." aria-label="Search">
+
+                    </div>
+
+                </div>
+
+                <!-- Header Right -->
+                <div class="header-right">
+
+                    <!-- Notifications -->
+                    <button class="icon-button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+
+                    <!-- Dark Mode -->
+                    <button class="icon-button" aria-label="Toggle Theme">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+
+                    <!-- Profile -->
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            UK
+                        </div>
+
+                        <div class="profile-info">
+                            <h4>Alamgir Khan</h4>
+                            <p>Frontend Student</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Attendance -->
+            <section class="attendance-page">
+
+                <!-- ========================================================= -->
+                <!-- Page Header -->
+                <!-- ========================================================= -->
+
+                <div class="page-header">
+
+                    <div class="page-title">
+
+                        <h2>Attendance Overview</h2>
+
+                        <p>
+                            Monitor your attendance, track your presence, and stay updated with your attendance percentage.
+                        </p>
+
+                    </div>
+
+                    <button class="primary-btn">
+ 
+                        <i class="fa-solid fa-calendar-days"></i>
+ 
+                        View Monthly Report
+ 
+                    </button>
+
+                </div>
+
+                <!-- ========================================================= -->
+                <!-- Attendance Statistics -->
+                <!-- ========================================================= -->
+                <div class="attendance-stats">
+
+                    <!-- Present -->
+                    <div class="attendance-card">
+                        <div class="attendance-icon present">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="attendance-info">
+                            <h4>Present Days</h4>
+                            <h2>142</h2>
+                            <span class="positive">
+                                +5 This Month
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Absent -->
+                    <div class="attendance-card">
+                        <div class="attendance-icon absent">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </div>
+                        <div class="attendance-info">
+                            <h4>Absent Days</h4>
+                            <h2>08</h2>
+                            <span class="negative">
+                                -2 Last Month
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Leave -->
+                    <div class="attendance-card">
+                        <div class="attendance-icon leave">
+                            <i class="fa-solid fa-calendar-minus"></i>
+                        </div>
+                        <div class="attendance-info">
+                            <h4>Leave Days</h4>
+                            <h2>05</h2>
+                            <span>
+                                Approved
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Percentage -->
+                    <div class="attendance-card">
+                        <div class="attendance-icon percentage">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div class="attendance-info">
+                            <h4>Attendance</h4>
+                            <h2>94%</h2>
+                            <span class="positive">
+                                Excellent
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ========================================================= -->
+                <!-- Attendance Calendar -->
+                <!-- ========================================================= -->
+                <section class="attendance-calendar">
+
+                    <div class="calendar-header">
+                        <h2>July 2026 Attendance</h2>
+                        <button class="primary-btn">
+                            <i class="fa-solid fa-calendar"></i>
+                            Monthly View
+                        </button>
+                    </div>
+
+                    <div class="calendar-grid">
+
+                        <!-- Days -->
+                        <div class="day-name">Mon</div>
+                        <div class="day-name">Tue</div>
+                        <div class="day-name">Wed</div>
+                        <div class="day-name">Thu</div>
+                        <div class="day-name">Fri</div>
+                        <div class="day-name">Sat</div>
+                        <div class="day-name">Sun</div>
+
+                        <!-- Week 1 -->
+                        <div class="calendar-day present">1</div>
+                        <div class="calendar-day present">2</div>
+                        <div class="calendar-day leave">3</div>
+                        <div class="calendar-day present">4</div>
+                        <div class="calendar-day absent">5</div>
+                        <div class="calendar-day weekend">6</div>
+                        <div class="calendar-day weekend">7</div>
+
+                        <!-- Week 2 -->
+                        <div class="calendar-day present">8</div>
+                        <div class="calendar-day present">9</div>
+                        <div class="calendar-day present">10</div>
+                        <div class="calendar-day present">11</div>
+                        <div class="calendar-day today">12</div>
+                        <div class="calendar-day weekend">13</div>
+                        <div class="calendar-day weekend">14</div>
+
+                        <!-- Week 3 -->
+                        <div class="calendar-day present">15</div>
+                        <div class="calendar-day absent">16</div>
+                        <div class="calendar-day present">17</div>
+                        <div class="calendar-day leave">18</div>
+                        <div class="calendar-day present">19</div>
+                        <div class="calendar-day weekend">20</div>
+                        <div class="calendar-day weekend">21</div>
+
+                        <!-- Week 4 -->
+                        <div class="calendar-day present">22</div>
+                        <div class="calendar-day present">23</div>
+                        <div class="calendar-day present">24</div>
+                        <div class="calendar-day present">25</div>
+                        <div class="calendar-day absent">26</div>
+                        <div class="calendar-day weekend">27</div>
+                        <div class="calendar-day weekend">28</div>
+
+                    </div>
+
+                    <div class="calendar-legend">
+                        <span>
+                            <span class="legend present-box"></span> Present
+                        </span>
+                        <span>
+                            <span class="legend absent-box"></span> Absent
+                        </span>
+                        <span>
+                            <span class="legend leave-box"></span> Leave
+                        </span>
+                        <span>
+                            <span class="legend today-box"></span> Today
+                        </span>
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
