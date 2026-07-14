@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CodeQuantum Student Portal — view and manage your personal and academic information.">
     <title>CodeQuantum Student Portal - Profile</title>
 
     <!-- Font Awesome -->
@@ -96,7 +97,7 @@
                     </li>
 
                     <li>
-                        <a href="profile.html" class="active">
+                        <a href="profile.html" class="active" aria-current="page">
                             <i class="fa-solid fa-user"></i>
                             <span>Profile</span>
                         </a>
@@ -124,7 +125,7 @@
                     </li>
 
                     <li>
-                        <a href="timetable.html">
+                        <a href="timetables.html">
                             <i class="fa-solid fa-clock"></i>
                             <span>Timetable</span>
                         </a>
@@ -151,7 +152,7 @@
             <!-- Logout -->
             <div class="logout">
 
-                <button>
+                <button type="button">
  
                     <i class="fa-solid fa-right-from-bracket"></i>
  
@@ -173,7 +174,7 @@
                 <div class="header-left">
 
                     <!-- Menu Button -->
-                    <button class="menu-toggle" aria-label="Open Sidebar">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open Sidebar" aria-expanded="true">
                         <i class="fa-solid fa-bars"></i>
                     </button>
 
@@ -192,20 +193,20 @@
                 <div class="header-right">
 
                     <!-- Notifications -->
-                    <button class="icon-button" aria-label="Notifications">
+                    <button class="icon-button has-badge" type="button" aria-label="Notifications">
                         <i class="fa-regular fa-bell"></i>
                     </button>
 
                     <!-- Dark Mode -->
-                    <button class="icon-button" aria-label="Toggle Theme">
+                    <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle Theme">
                         <i class="fa-regular fa-moon"></i>
                     </button>
 
                     <!-- Profile -->
-                    <div class="profile">
+                    <div class="profile" tabindex="0">
 
                         <div class="profile-avatar">
-                            UK
+                            AK
                         </div>
 
                         <div class="profile-info">
@@ -274,6 +275,53 @@
 
                     <!-- Left Card -->
                     <div class="profile-card">
+
+                        <div class="profile-card-cover"></div>
+
+                        <div class="profile-card-avatar-wrap">
+                            <div class="profile-card-avatar">AK</div>
+                            <button class="avatar-edit-btn" type="button" aria-label="Change profile photo">
+                                <i class="fa-solid fa-camera"></i>
+                            </button>
+                        </div>
+
+                        <h3 class="profile-card-name">Alamgir Khan</h3>
+                        <p class="profile-card-role">BS Computer Science • 4th Semester</p>
+
+                        <span class="profile-card-badge">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Verified Student
+                        </span>
+
+                        <ul class="profile-card-info">
+
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>alamgir@email.com</span>
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+92 300 1234567</span>
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Lahore, Pakistan</span>
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-id-badge"></i>
+                                <span>CQ-2026-001</span>
+                            </li>
+
+                        </ul>
+
+                        <button class="profile-card-cta" type="button">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            Share Profile
+                        </button>
+
                     </div>
 
                     <!-- Right Information -->
@@ -283,7 +331,7 @@
 
                             <div class="section-title">
                                 <h3>Personal Information</h3>
-                                <button class="edit-btn">
+                                <button class="edit-btn" type="button">
                                     <i class="fa-solid fa-pen"></i>
                                     Edit
                                 </button>
@@ -397,6 +445,27 @@
         </main>
 
     </div>
+
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/profile.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
 
 </body>
 

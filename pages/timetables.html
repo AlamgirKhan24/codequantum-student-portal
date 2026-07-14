@@ -124,7 +124,7 @@
                     </li>
 
                     <li>
-                        <a href="timetable.html" class="active">
+                        <a href="timetables.html" class="active" aria-current="page">
                             <i class="fa-solid fa-clock"></i>
                             <span>Timetable</span>
                         </a>
@@ -151,7 +151,7 @@
             <!-- Logout -->
             <div class="logout">
 
-                <button>
+                <button type="button">
  
                     <i class="fa-solid fa-right-from-bracket"></i>
  
@@ -173,7 +173,7 @@
                 <div class="header-left">
 
                     <!-- Menu Button -->
-                    <button class="menu-toggle" aria-label="Open Sidebar">
+                    <button type="button" id="menuToggle" class="menu-toggle" aria-label="Open Sidebar">
                         <i class="fa-solid fa-bars"></i>
                     </button>
 
@@ -192,12 +192,13 @@
                 <div class="header-right">
 
                     <!-- Notifications -->
-                    <button class="icon-button" aria-label="Notifications">
+                    <button type="button" class="icon-button" aria-label="Notifications">
                         <i class="fa-regular fa-bell"></i>
+                        <span class="notification-badge">3</span>
                     </button>
 
                     <!-- Dark Mode -->
-                    <button class="icon-button" aria-label="Toggle Theme">
+                    <button type="button" id="themeToggle" class="icon-button" aria-label="Toggle Theme">
                         <i class="fa-regular fa-moon"></i>
                     </button>
 
@@ -205,7 +206,7 @@
                     <div class="profile">
 
                         <div class="profile-avatar">
-                            UK
+                            AK
                         </div>
 
                         <div class="profile-info">
@@ -240,7 +241,7 @@
 
                     </div>
 
-                    <button class="primary-btn">
+                    <button type="button" class="primary-btn">
  
                         <i class="fa-solid fa-calendar-week"></i>
  
@@ -312,7 +313,7 @@
 
                     <div class="section-header">
                         <h2>Weekly Class Schedule</h2>
-                        <button class="primary-btn">
+                        <button type="button" class="primary-btn">
                             <i class="fa-solid fa-calendar-week"></i>
                             This Week
                         </button>
@@ -322,13 +323,13 @@
                         <table class="timetable-table">
                             <thead>
                                 <tr>
-                                    <th>Time</th>
-                                    <th>Monday</th>
-                                    <th>Tuesday</th>
-                                    <th>Wednesday</th>
-                                    <th>Thursday</th>
-                                    <th>Friday</th>
-                                    <th>Saturday</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Monday</th>
+                                    <th scope="col">Tuesday</th>
+                                    <th scope="col">Wednesday</th>
+                                    <th scope="col">Thursday</th>
+                                    <th scope="col">Friday</th>
+                                    <th scope="col">Saturday</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -420,7 +421,7 @@
 
                         <h2>Today's Schedule</h2>
 
-                        <button class="primary-btn">
+                        <button type="button" class="primary-btn">
  
                             <i class="fa-solid fa-calendar-day"></i>
  
@@ -462,7 +463,7 @@
 
                             </div>
 
-                            <button class="join-btn">
+                            <button type="button" class="join-btn">
  
                                 Join Class
  
@@ -500,7 +501,7 @@
 
                             </div>
 
-                            <button class="join-btn">
+                            <button type="button" class="join-btn">
  
                                 Join Class
  
@@ -538,7 +539,7 @@
 
                             </div>
 
-                            <button class="join-btn">
+                            <button type="button" class="join-btn">
  
                                 Join Class
  
@@ -623,6 +624,27 @@
         </main>
 
     </div>
+
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/timetable.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
 
 </body>
 

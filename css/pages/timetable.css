@@ -12,20 +12,20 @@
 }
 
 .timetable-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 25px;
     display: flex;
     align-items: center;
     gap: 20px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
     transition: .3s;
 }
 
 .timetable-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(99, 102, 241, .12);
+    box-shadow: var(--shadow-hover);
 }
 
 .timetable-icon {
@@ -35,54 +35,61 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ffffff;
+    color: var(--white);
     font-size: 26px;
     flex-shrink: 0;
 }
 
-.total {
-    background: #6366f1;
+
+/* Renamed from bare .total/.today/.hours/.attendance — those names are far too
+   generic and were already at risk of colliding with unrelated classes on other
+   pages (e.g. ".today" or ".attendance" elsewhere). Compounded with .timetable-icon
+   and scoped to this page instead. Update the HTML's class list accordingly if
+   it isn't already "timetable-icon total" etc — this still matches that markup. */
+
+.timetable-page .timetable-icon.total {
+    background: var(--primary-color);
 }
 
-.today {
-    background: #10b981;
+.timetable-page .timetable-icon.today {
+    background: var(--success-color);
 }
 
-.hours {
-    background: #f59e0b;
+.timetable-page .timetable-icon.hours {
+    background: var(--warning-color);
 }
 
-.attendance {
-    background: #ec4899;
+.timetable-page .timetable-icon.attendance {
+    background: var(--accent-pink);
 }
 
 .timetable-info h4 {
-    color: #64748b;
+    color: var(--text-muted);
     margin-bottom: 8px;
     font-size: 15px;
 }
 
 .timetable-info h2 {
     font-size: 32px;
-    color: #0f172a;
+    color: var(--text-dark);
     margin-bottom: 8px;
 }
 
 .timetable-info span {
-    color: #94a3b8;
+    color: var(--text-light);
     font-size: 14px;
 }
 
 .weekly-timetable {
     margin-top: 40px;
-    background: #ffffff;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 20px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
 }
 
-.table-wrapper {
+.timetable-page .table-wrapper {
     overflow-x: auto;
 }
 
@@ -93,15 +100,15 @@
 }
 
 .timetable-table th {
-    background: #f8fafc;
-    color: #475569;
+    background: var(--bg-muted);
+    color: var(--text-muted-dark);
     padding: 18px;
     text-align: center;
     font-size: 15px;
 }
 
 .timetable-table td {
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
     padding: 18px;
     text-align: center;
 }
@@ -113,27 +120,32 @@
 
 .timetable-table td p {
     font-size: 13px;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
+
+/* Subject color-coding tokens — new to this page, add these to variables.css
+   if you want them reusable elsewhere (e.g. courses.css subject badges):
+   --subject-html-bg, --subject-css-bg, --subject-js-bg, --subject-react-bg, --subject-ui-bg */
+
 .html-class {
-    background: #dbeafe;
+    background: var(--subject-html-bg, #dbeafe);
 }
 
 .css-class {
-    background: #dcfce7;
+    background: var(--subject-css-bg, #dcfce7);
 }
 
 .js-class {
-    background: #fef3c7;
+    background: var(--subject-js-bg, #fef3c7);
 }
 
 .react-class {
-    background: #ede9fe;
+    background: var(--subject-react-bg, #ede9fe);
 }
 
 .ui-class {
-    background: #fee2e2;
+    background: var(--subject-ui-bg, #fee2e2);
 }
 
 .timetable-table td:hover {
@@ -152,17 +164,17 @@
 }
 
 .schedule-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 25px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
     transition: .3s;
 }
 
 .schedule-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(99, 102, 241, .12);
+    box-shadow: var(--shadow-hover);
 }
 
 .schedule-time {
@@ -170,26 +182,26 @@
 }
 
 .schedule-time h3 {
-    color: #6366f1;
+    color: var(--primary-color);
     font-size: 24px;
 }
 
 .schedule-time span {
-    color: #64748b;
+    color: var(--text-muted);
 }
 
 .schedule-details h3 {
     margin-bottom: 15px;
-    color: #0f172a;
+    color: var(--text-dark);
 }
 
 .schedule-details p {
     margin-bottom: 10px;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
 .schedule-details i {
-    color: #6366f1;
+    color: var(--primary-color);
     margin-right: 8px;
 }
 
@@ -199,15 +211,15 @@
     padding: 12px;
     border: none;
     border-radius: 12px;
-    background: #6366f1;
-    color: #ffffff;
+    background: var(--primary-color);
+    color: var(--white);
     font-weight: 600;
     cursor: pointer;
     transition: .3s;
 }
 
 .join-btn:hover {
-    background: #4f46e5;
+    background: var(--primary-color-dark);
 }
 
 .timetable-bottom {
@@ -219,11 +231,11 @@
 
 .upcoming-classes,
 .quick-notes {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 30px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
 }
 
 .upcoming-list {
@@ -233,7 +245,7 @@
     margin-top: 20px;
 }
 
-.upcoming-item {
+.timetable-page .upcoming-item {
     display: flex;
     align-items: center;
     gap: 18px;
@@ -242,41 +254,41 @@
     transition: .3s;
 }
 
-.upcoming-item:hover {
-    background: #f8fafc;
+.timetable-page .upcoming-item:hover {
+    background: var(--bg-muted);
 }
 
-.subject-icon {
+.timetable-page .subject-icon {
     width: 60px;
     height: 60px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ffffff;
+    color: var(--white);
     font-size: 26px;
     flex-shrink: 0;
 }
 
 .subject-icon.html {
-    background: #f97316;
+    background: var(--accent-orange);
 }
 
 .subject-icon.css {
-    background: #3b82f6;
+    background: var(--info-color);
 }
 
 .subject-icon.react {
-    background: #06b6d4;
+    background: var(--accent-cyan);
 }
 
-.subject-info h4 {
+.timetable-page .subject-info h4 {
     margin-bottom: 6px;
-    color: #0f172a;
+    color: var(--text-dark);
 }
 
-.subject-info p {
-    color: #64748b;
+.timetable-page .subject-info p {
+    color: var(--text-muted);
 }
 
 .quick-notes ul {
@@ -289,6 +301,6 @@
 .quick-notes li {
     padding: 14px;
     border-radius: 12px;
-    background: #f8fafc;
-    color: #475569;
+    background: var(--bg-muted);
+    color: var(--text-muted-dark);
 }

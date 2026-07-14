@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CodeQuantum Student Portal — track your enrolled courses and learning progress.">
     <title>CodeQuantum Student Portal - Courses</title>
 
     <!-- Font Awesome -->
@@ -103,7 +104,7 @@
                     </li>
 
                     <li>
-                        <a href="courses.html" class="active">
+                        <a href="courses.html" class="active" aria-current="page">
                             <i class="fa-solid fa-book-open"></i>
                             <span>Courses</span>
                         </a>
@@ -124,7 +125,7 @@
                     </li>
 
                     <li>
-                        <a href="timetable.html">
+                        <a href="timetables.html">
                             <i class="fa-solid fa-clock"></i>
                             <span>Timetable</span>
                         </a>
@@ -151,7 +152,7 @@
             <!-- Logout -->
             <div class="logout">
 
-                <button>
+                <button type="button">
  
                     <i class="fa-solid fa-right-from-bracket"></i>
  
@@ -173,7 +174,7 @@
                 <div class="header-left">
 
                     <!-- Menu Button -->
-                    <button class="menu-toggle" aria-label="Open Sidebar">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open Sidebar" aria-expanded="true">
                         <i class="fa-solid fa-bars"></i>
                     </button>
 
@@ -192,20 +193,20 @@
                 <div class="header-right">
 
                     <!-- Notifications -->
-                    <button class="icon-button" aria-label="Notifications">
+                    <button class="icon-button has-badge" type="button" aria-label="Notifications">
                         <i class="fa-regular fa-bell"></i>
                     </button>
 
                     <!-- Dark Mode -->
-                    <button class="icon-button" aria-label="Toggle Theme">
+                    <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle Theme">
                         <i class="fa-regular fa-moon"></i>
                     </button>
 
                     <!-- Profile -->
-                    <div class="profile">
+                    <div class="profile" tabindex="0">
 
                         <div class="profile-avatar">
-                            UK
+                            AK
                         </div>
 
                         <div class="profile-info">
@@ -240,7 +241,7 @@
 
                     </div>
 
-                    <button class="primary-btn">
+                    <button class="primary-btn" type="button">
  
                         <i class="fa-solid fa-plus"></i>
  
@@ -300,12 +301,12 @@
                     <!-- Search -->
                     <div class="course-search">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Search your courses...">
+                        <input type="text" placeholder="Search your courses..." aria-label="Search your courses">
                     </div>
 
                     <!-- Filter -->
                     <div class="course-filter">
-                        <select>
+                        <select aria-label="Filter courses by status">
                             <option>All Courses</option>
                             <option>Completed</option>
                             <option>In Progress</option>
@@ -323,7 +324,8 @@
                     <div class="featured-content">
 
                         <span class="featured-tag">
-                            ⭐ Featured Course
+                            <i class="fa-solid fa-star"></i>
+                            Featured Course
                         </span>
 
                         <h2>Advanced React Development</h2>
@@ -347,7 +349,7 @@
                             </span>
                         </div>
 
-                        <button class="primary-btn">
+                        <button class="primary-btn" type="button">
                             Start Learning
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
@@ -397,7 +399,7 @@
                                     <div class="progress-fill" style="width:75%;"></div>
                                 </div>
                             </div>
-                            <button class="continue-btn">
+                            <button class="continue-btn" type="button">
                                 Continue Learning
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -436,7 +438,7 @@
                                     <div class="progress-fill" style="width:92%;"></div>
                                 </div>
                             </div>
-                            <button class="continue-btn">
+                            <button class="continue-btn" type="button">
                                 Continue Learning
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -493,4 +495,27 @@
 
     </div>
 
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/courses.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
+
 </body>
+
+</html>

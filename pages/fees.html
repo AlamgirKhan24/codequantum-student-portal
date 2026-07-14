@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees | CodeQuantum Student Portal</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <div class="atom-logo">
+
+                    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+ 
+                        <!-- Orbit Rings -->
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#a78bfa"
+                            stroke-width="6"
+                            transform="rotate(60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#8b7ff0"
+                            stroke-width="6"
+                            transform="rotate(-60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#c7d2fe"
+                            stroke-width="4" />
+ 
+                        <!-- Electrons -->
+                        <circle cx="16" cy="118" r="9" fill="#7c3aed" />
+                        <circle cx="222" cy="82" r="9" fill="#5b6ee8" />
+ 
+                        <!-- Center -->
+                        <g transform="translate(120,100)">
+                            <text
+                                x="-38"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&lt;</text>
+ 
+                            <circle cx="0" cy="0" r="6" fill="#1e2144" />
+ 
+                            <text
+                                x="18"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&gt;</text>
+                        </g>
+ 
+                    </svg>
+
+                </div>
+
+                <div class="logo-text">
+                    <h1>CodeQuantum</h1>
+                    <p>Student Portal</p>
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <h3 class="menu-title">MENU</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="assignments.html">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>Assignments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="attendance.html">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="timetables.html">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Timetable</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="results.html">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Results</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fees.html" class="active" aria-current="page">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Fees</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="logout">
+
+                <button type="button">
+ 
+                    <i class="fa-solid fa-right-from-bracket"></i>
+ 
+                    <span>Logout</span>
+ 
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!--  Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="header">
+
+                <!-- Header Left -->
+                <div class="header-left">
+
+                    <!-- Menu Button -->
+                    <button type="button" id="menuToggle" class="menu-toggle" aria-label="Open Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <!-- Search -->
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="search" placeholder="Search courses, assignments..." aria-label="Search">
+
+                    </div>
+
+                </div>
+
+                <!-- Header Right -->
+                <div class="header-right">
+
+                    <!-- Notifications -->
+                    <button type="button" class="icon-button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+
+                    <!-- Dark Mode -->
+                    <button type="button" id="themeToggle" class="icon-button" aria-label="Toggle Theme">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+
+                    <!-- Profile -->
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            AK
+                        </div>
+
+                        <div class="profile-info">
+                            <h4>Alamgir Khan</h4>
+                            <p>Frontend Student</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Fees -->
+            <section class="fees-page">
+
+                <!-- ========================================================= -->
+                <!-- Page Header -->
+                <!-- ========================================================= -->
+
+                <div class="page-header">
+
+                    <div class="page-title">
+
+                        <h2>Fees &amp; Payments</h2>
+
+                        <p>
+                            Track your fee structure, payment history, and upcoming installments.
+                        </p>
+
+                    </div>
+
+                    <button type="button" class="primary-btn">
+ 
+                        <i class="fa-solid fa-credit-card"></i>
+ 
+                        Pay Now
+ 
+                    </button>
+
+                </div>
+
+                <!-- ========================================================= -->
+                <!-- Fees Statistics -->
+                <!-- ========================================================= -->
+                <div class="fees-stats">
+
+                    <!-- Total Fee -->
+                    <div class="fees-card">
+                        <div class="fees-icon total">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="fees-info">
+                            <h4>Total Fee</h4>
+                            <h2>$4,800</h2>
+                            <span>This Semester</span>
+                        </div>
+                    </div>
+
+                    <!-- Paid Amount -->
+                    <div class="fees-card">
+                        <div class="fees-icon paid">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="fees-info">
+                            <h4>Amount Paid</h4>
+                            <h2>$3,600</h2>
+                            <span class="positive">75% Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Pending Amount -->
+                    <div class="fees-card">
+                        <div class="fees-icon pending">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <div class="fees-info">
+                            <h4>Pending Amount</h4>
+                            <h2>$1,200</h2>
+                            <span class="negative">Due Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- Next Due Date -->
+                    <div class="fees-card">
+                        <div class="fees-icon due">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <div class="fees-info">
+                            <h4>Next Due Date</h4>
+                            <h2>Aug 15</h2>
+                            <span>Installment 3</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ========================================================= -->
+                <!-- Fee Breakdown & Payment Progress -->
+                <!-- ========================================================= -->
+                <section class="fees-overview">
+
+                    <!-- Fee Breakdown -->
+                    <div class="fees-panel">
+
+                        <div class="section-header">
+                            <h2>Fee Breakdown</h2>
+                        </div>
+
+                        <div class="breakdown-list">
+
+                            <div class="breakdown-item">
+                                <span>Tuition Fee</span>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill tuition-fill" style="width:78%;"></div>
+                                </div>
+                                <strong>$3,200</strong>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <span>Library Fee</span>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill library-fill" style="width:20%;"></div>
+                                </div>
+                                <strong>$300</strong>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <span>Lab Fee</span>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill lab-fill" style="width:25%;"></div>
+                                </div>
+                                <strong>$600</strong>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <span>Transport Fee</span>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill transport-fill" style="width:18%;"></div>
+                                </div>
+                                <strong>$700</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Payment Progress -->
+                    <div class="fees-panel">
+
+                        <div class="section-header">
+                            <h2>Payment Progress</h2>
+                        </div>
+
+                        <div class="payment-circle">
+                            <h1>75%</h1>
+                            <p>Paid</p>
+                        </div>
+
+                        <div class="installment-box">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <div class="installment-info">
+                                <h2>2 / 3</h2>
+                                <p>Installments Paid</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================================= -->
+                <!-- Payment History -->
+                <!-- ========================================================= -->
+                <section class="payment-history">
+
+                    <div class="section-header">
+                        <h2>Payment History</h2>
+                        <button type="button" class="primary-btn">
+                            <i class="fa-solid fa-download"></i>
+                            Download Statement
+                        </button>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="fees-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Receipt No.</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#RC-1042</td>
+                                    <td>Installment 1 — Tuition &amp; Lab</td>
+                                    <td>Mar 10, 2026</td>
+                                    <td>$1,800</td>
+                                    <td><span class="payment-status paid">Paid</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#RC-1078</td>
+                                    <td>Installment 2 — Library &amp; Transport</td>
+                                    <td>May 15, 2026</td>
+                                    <td>$1,800</td>
+                                    <td><span class="payment-status paid">Paid</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#RC-1103</td>
+                                    <td>Installment 3 — Final Balance</td>
+                                    <td>Aug 15, 2026</td>
+                                    <td>$1,200</td>
+                                    <td><span class="payment-status pending">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/fees.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

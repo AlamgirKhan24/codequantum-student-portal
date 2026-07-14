@@ -1,158 +1,609 @@
-/*  */
+/* ===========================================================
+   Small Devices (large phones / small tablets, portrait)
+   Breakpoint: max-width 768px
+=========================================================== */
 
-@media (max-width:576px) {
-    .course-card {
-        border-radius: 16px;
+@media (max-width: 768px) {
+    /* Sidebar full off-canvas, full width when opened */
+    .sidebar {
+        width: min(280px, 80vw);
     }
-    .course-meta {
-        flex-direction: column;
+    /* Header */
+    .header {
+        padding: 0 16px;
         gap: 12px;
     }
-    .continue-btn {
-        width: 100%;
+    .header-left {
+        gap: 12px;
     }
-}
-
-
-/* Small Device */
-
-@media (max-width:480px) {
-    .sidebar {
-        width: 240px;
-        left: -240px;
-    }
-    .sidebar.active {
-        left: 0;
-    }
-    .header {
-        padding: 15px;
+    .search-box {
+        display: none;
     }
     .profile-info {
+        display: none;
+    }
+    .profile i {
         display: none;
     }
     .profile-avatar {
-        width: 42px;
-        height: 42px;
-        font-size: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
     }
-    .featured-course {
+    /* Dashboard */
+    .dashboard {
+        padding: 20px;
+        gap: 24px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .welcome-text h2 {
+        font-size: 1.5rem;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .stat-card {
         padding: 20px;
     }
-    .featured-content h2 {
-        font-size: 24px;
+    .card-body h2 {
+        font-size: 2.2rem;
     }
-    .featured-image {
-        width: 120px;
-        height: 120px;
-        font-size: 70px;
+    .progress-grid {
+        grid-template-columns: 1fr;
     }
-    .course-card {
-        border-radius: 12px;
+    .assignment-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
     }
-}
-
-@media (max-width:480px) {
-    .main-content {
-        margin-left: 0 !important;
-        width: 100% !important;
-        max-width: 100%;
-        padding: 15px;
-    }
-}
-
-@media (max-width:480px) {
-    .header {
-        flex-wrap: wrap;
-        gap: 15px;
-        padding: 15px;
-    }
-}
-
-@media (max-width:480px) {
-    .header-left {
+    .assignment-right {
         width: 100%;
+        justify-content: space-between;
+    }
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Profile */
+    .profile-page {
+        padding: 20px;
+    }
+    .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .details-card {
+        padding: 20px;
+    }
+}
+
+
+/*  */
+
+
+/* ===========================================================
+   Small Devices (large phones / small tablets, portrait)
+   Breakpoint: max-width 768px
+=========================================================== */
+
+@media (max-width: 768px) {
+    /* Sidebar full off-canvas, full width when opened */
+    .sidebar {
+        width: min(280px, 80vw);
+    }
+    /* Header */
+    .header {
+        padding: 0 16px;
+        gap: 12px;
+    }
+    .header-left {
+        gap: 12px;
     }
     .search-box {
-        width: 100%;
+        display: none;
     }
-}
-
-@media (max-width:480px) {
     .profile-info {
         display: none;
     }
+    .profile i {
+        display: none;
+    }
+    .profile-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+    /* Dashboard */
+    .dashboard {
+        padding: 20px;
+        gap: 24px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .welcome-text h2 {
+        font-size: 1.5rem;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .stat-card {
+        padding: 20px;
+    }
+    .card-body h2 {
+        font-size: 2.2rem;
+    }
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+    .assignment-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+    .assignment-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Profile */
+    .profile-page {
+        padding: 20px;
+    }
+    .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .details-card {
+        padding: 20px;
+    }
+    /* Courses */
+    .courses-page {
+        padding: 20px;
+    }
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    .page-header .primary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .course-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+    }
+    .course-stat-card {
+        padding: var(--space-md);
+    }
+    .course-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+    .course-filter select {
+        width: 100%;
+    }
+    .featured-course {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-lg);
+    }
+    .featured-info {
+        justify-content: center;
+    }
+    .featured-image {
+        width: 140px;
+        height: 140px;
+        font-size: 70px;
+    }
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
 }
 
-@media (max-width:480px) {
-    .profile .fa-chevron-down {
+
+/*  */
+
+
+/* ===========================================================
+   Small Devices (large phones / small tablets, portrait)
+   Breakpoint: max-width 768px
+=========================================================== */
+
+@media (max-width: 768px) {
+    /* Sidebar full off-canvas, full width when opened */
+    .sidebar {
+        width: min(280px, 80vw);
+    }
+    /* Header */
+    .header {
+        padding: 0 16px;
+        gap: 12px;
+    }
+    .header-left {
+        gap: 12px;
+    }
+    .search-box {
+        display: none;
+    }
+    .profile-info {
+        display: none;
+    }
+    .profile i {
+        display: none;
+    }
+    .profile-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+    /* Dashboard */
+    .dashboard {
+        padding: 20px;
+        gap: 24px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .welcome-text h2 {
+        font-size: 1.5rem;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .stat-card {
+        padding: 20px;
+    }
+    .card-body h2 {
+        font-size: 2.2rem;
+    }
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+    .assignment-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+    .assignment-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Profile */
+    .profile-page {
+        padding: 20px;
+    }
+    .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .details-card {
+        padding: 20px;
+    }
+    /* Courses */
+    .courses-page {
+        padding: 20px;
+    }
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    .page-header .primary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .course-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+    }
+    .course-stat-card {
+        padding: var(--space-md);
+    }
+    .course-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+    .course-filter select {
+        width: 100%;
+    }
+    .featured-course {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-lg);
+    }
+    .featured-info {
+        justify-content: center;
+    }
+    .featured-image {
+        width: 140px;
+        height: 140px;
+        font-size: 70px;
+    }
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    /* Assignments */
+    .assignments-page {
+        padding: 0 20px 32px 20px;
+    }
+    .assignments-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Attendance Page — Small Device (<=768px) ==================== */
+
+@media (max-width: 768px) {
+    .attendance-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+    .attendance-card {
+        padding: 16px;
+        gap: 14px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .attendance-info h2 {
+        font-size: 24px;
+    }
+    .attendance-calendar,
+    .attendance-history,
+    .attendance-activity {
+        padding: 20px;
+    }
+    .calendar-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .calendar-grid {
+        grid-template-columns: repeat(7, minmax(32px, 1fr));
+        gap: 6px;
+    }
+    .day-name {
+        padding: 6px;
+        font-size: 12px;
+    }
+    .calendar-day {
+        height: 44px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .calendar-legend {
+        gap: 16px;
+    }
+    .attendance-page .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .attendance-page thead th,
+    .attendance-page tbody td {
+        padding: 12px;
+        font-size: 13px;
+    }
+    .attendance-summary {
+        grid-template-columns: 1fr;
+    }
+    .streak-box {
+        gap: 14px;
+    }
+    .attendance-page .activity-item {
+        padding: 14px;
+        gap: 14px;
+    }
+    .attendance-page .activity-item span {
         display: none;
     }
 }
 
-@media (max-width:480px) {
-    .icon-button {
-        width: 40px;
-        height: 40px;
+
+/*  */
+
+
+/* ==================== Timetable Page — Small Device (<=768px) ==================== */
+
+@media (max-width: 768px) {
+    .timetable-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
     }
-}
-
-@media (max-width:480px) {
-    .header-right {
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: flex-end;
-    }
-}
-
-
-/* Small Device */
-
-@media (max-width:480px) {
-    .assignment-card {
+    .timetable-card {
         padding: 16px;
-        border-radius: 16px;
+        gap: 14px;
+        flex-direction: column;
+        text-align: center;
     }
-    .assignment-header h3 {
-        font-size: 18px;
+    .timetable-info h2 {
+        font-size: 24px;
     }
-    .assignment-description {
-        font-size: 14px;
-    }
-    .assignment-category {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
-    .priority {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
-    .status {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
-    .submit-btn {
-        width: 100%;
-        padding: 12px;
-        font-size: 14px;
-    }
-    .progress-card {
-        padding: 18px;
-    }
-    .performance-score h1 {
-        font-size: 40px;
-    }
-    .activity-section {
+    .weekly-timetable {
         padding: 20px;
     }
-    .activity-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 16px;
+    /* Table already scrolls horizontally via .table-wrapper + min-width: 900px,
+       so no need to squeeze columns here — just tighten the internal padding. */
+    .timetable-table th,
+    .timetable-table td {
+        padding: 12px;
+        font-size: 13px;
     }
-    .activity-content h4 {
-        font-size: 16px;
+    .timetable-table td h4 {
+        font-size: 13px;
     }
-    .activity-content p {
+    .timetable-table td p {
+        font-size: 12px;
+    }
+    .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .schedule-card {
+        padding: 20px;
+    }
+    .upcoming-classes,
+    .quick-notes {
+        padding: 20px;
+    }
+    .timetable-page .upcoming-item {
+        padding: 12px;
+        gap: 14px;
+    }
+    .timetable-page .subject-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Results Page — Small Device (<=768px) ==================== */
+
+@media (max-width: 768px) {
+    .results-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+    .result-card {
+        padding: 16px;
+        gap: 14px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .result-info h2 {
+        font-size: 24px;
+    }
+    .performance-card {
+        padding: 20px;
+    }
+    /* Progress rows: subject name no longer fits comfortably alongside the bar
+       and percentage in a fixed-width column grid at this size, so stack it
+       into two rows — label on top, bar + percentage below. */
+    .progress-item {
+        grid-template-columns: 1fr 60px;
+        grid-template-rows: auto auto;
+        row-gap: 8px;
+        column-gap: 14px;
+    }
+    .progress-item span {
+        grid-column: 1 / -1;
+        font-size: 14px;
+    }
+    .summary-item {
+        padding: 14px;
+    }
+    .summary-item p {
+        font-size: 19px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Fees Page — Small Device (<=768px) ==================== */
+
+@media (max-width: 768px) {
+    .fees-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+    .fees-card {
+        padding: 16px;
+        gap: 14px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .fees-info h2 {
+        font-size: 24px;
+    }
+    .fees-panel {
+        padding: 20px;
+    }
+    /* Same treatment as results.css's .progress-item: label no longer fits
+       comfortably beside the bar + amount in a fixed-width grid, so stack it
+       into two rows instead. */
+    .breakdown-item {
+        grid-template-columns: 1fr 70px;
+        grid-template-rows: auto auto;
+        row-gap: 8px;
+        column-gap: 14px;
+    }
+    .breakdown-item span {
+        grid-column: 1 / -1;
+        font-size: 14px;
+    }
+    .payment-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .installment-box {
+        gap: 14px;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+    .installment-box i {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .payment-history {
+        padding: 20px;
+    }
+    .fees-page .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .fees-table thead th,
+    .fees-table tbody td {
+        padding: 12px;
         font-size: 13px;
     }
 }

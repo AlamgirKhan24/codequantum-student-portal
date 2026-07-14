@@ -1,33 +1,19 @@
-/* Tablet */
+/* ===========================================================
+   Tablet
+   Breakpoint: max-width 1024px
+=========================================================== */
 
-@media (max-width: 992px) {
-    .course-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .courses-grid {
-        grid-template-columns: 1fr;
-    }
-    .featured-course {
-        flex-direction: column;
-        text-align: center;
-    }
-    .featured-info {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
-
-
-/* Tablet */
-
-@media (max-width:991px) {
+@media (max-width: 1024px) {
+    /* Sidebar becomes an off-canvas overlay, opens via .sidebar-collapsed
+       toggle on .app (inverted: collapsed by default on tablet+) */
     .sidebar {
-        left: -280px;
-        transition: .3s;
-        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+        z-index: var(--z-modal);
     }
-    .sidebar.active {
-        left: 0;
+    .app.sidebar-collapsed .sidebar {
+        transform: translateX(0);
+        box-shadow: var(--shadow-lg);
     }
     .main-content {
         margin-left: 0;
@@ -36,51 +22,350 @@
     .menu-toggle {
         display: flex;
     }
-    .featured-course {
-        flex-direction: column;
-        text-align: center;
+    /* Header */
+    .search-box {
+        width: 280px;
+    }
+    /* Dashboard */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-bottom {
+        grid-template-columns: 1fr;
+    }
+    .progress-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Profile */
+    .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .profile-container {
+        grid-template-columns: 280px 1fr;
+        gap: var(--space-lg);
+    }
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+}
+
+
+/* ===========================================================
+   Tablet
+   Breakpoint: max-width 1024px
+=========================================================== */
+
+@media (max-width: 1024px) {
+    /* Sidebar becomes an off-canvas overlay, opens via .sidebar-collapsed
+       toggle on .app (inverted: collapsed by default on tablet+) */
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+        z-index: var(--z-modal);
+    }
+    .app.sidebar-collapsed .sidebar {
+        transform: translateX(0);
+        box-shadow: var(--shadow-lg);
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    /* Header */
+    .search-box {
+        width: 280px;
+    }
+    /* Dashboard */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-bottom {
+        grid-template-columns: 1fr;
+    }
+    .progress-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Profile */
+    .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .profile-container {
+        grid-template-columns: 280px 1fr;
+        gap: var(--space-lg);
+    }
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+    /* Courses */
+    .course-stats {
+        grid-template-columns: repeat(2, 1fr);
     }
     .courses-grid {
         grid-template-columns: 1fr;
     }
+    .featured-course {
+        gap: var(--space-lg);
+        padding: var(--space-xl);
+    }
+    .featured-image {
+        width: 160px;
+        height: 160px;
+        font-size: 90px;
+    }
 }
 
-@media (max-width:991px) {
+
+/*  */
+
+
+/* ===========================================================
+   Tablet
+   Breakpoint: max-width 1024px
+=========================================================== */
+
+@media (max-width: 1024px) {
+    /* Sidebar becomes an off-canvas overlay, opens via .sidebar-collapsed
+       toggle on .app (inverted: collapsed by default on tablet+) */
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+        z-index: var(--z-modal);
+    }
+    .app.sidebar-collapsed .sidebar {
+        transform: translateX(0);
+        box-shadow: var(--shadow-lg);
+    }
     .main-content {
-        margin-left: 0 !important;
-        width: 100% !important;
-        max-width: 100%;
-    }
-}
-
-
-/* Assignments Tablet */
-
-@media (max-width:991px) {
-    .assignment-toolbar {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .assignment-search {
+        margin-left: 0;
         width: 100%;
     }
-    .assignment-filter {
-        width: 100%;
+    .menu-toggle {
+        display: flex;
     }
-    .assignment-filter select {
-        width: 100%;
+    /* Header */
+    .search-box {
+        width: 280px;
     }
+    /* Dashboard */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-bottom {
+        grid-template-columns: 1fr;
+    }
+    .progress-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Profile */
+    .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .profile-container {
+        grid-template-columns: 280px 1fr;
+        gap: var(--space-lg);
+    }
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+    /* Courses */
+    .course-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    .featured-course {
+        gap: var(--space-lg);
+        padding: var(--space-xl);
+    }
+    .featured-image {
+        width: 160px;
+        height: 160px;
+        font-size: 90px;
+    }
+    /* Assignments */
     .assignment-stats {
         grid-template-columns: repeat(2, 1fr);
     }
-    .assignments-grid {
-        grid-template-columns: 1fr;
-    }
     .progress-section {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-    .activity-item {
-        flex-wrap: wrap;
-        align-items: flex-start;
+}
+
+
+/*  */
+
+
+/* ==================== Attendance Page — Tablet (<=1024px) ==================== */
+
+@media (max-width: 1024px) {
+    .attendance-page {
+        padding: 0 20px 30px;
+    }
+    .attendance-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .attendance-card {
+        padding: 20px;
+    }
+    .attendance-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+    .attendance-info h2 {
+        font-size: 28px;
+    }
+    .calendar-grid {
+        gap: 10px;
+    }
+    .calendar-day {
+        height: 60px;
+        font-size: 14px;
+    }
+    .attendance-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .goal-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .goal-circle h1 {
+        font-size: 30px;
+    }
+    .streak-box i {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    .attendance-page .activity-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 20px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Timetable Page — Tablet (<=1024px) ==================== */
+
+@media (max-width: 1024px) {
+    .timetable-page {
+        padding: 0 20px 30px;
+    }
+    .timetable-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .timetable-card {
+        padding: 20px;
+    }
+    .timetable-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+    .timetable-info h2 {
+        font-size: 28px;
+    }
+    .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .timetable-bottom {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .timetable-page .subject-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Results Page — Tablet (<=1024px) ==================== */
+
+@media (max-width: 1024px) {
+    .results-page {
+        padding: 0 20px 30px;
+    }
+    .results-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .result-card {
+        padding: 20px;
+    }
+    .result-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+    .result-info h2 {
+        font-size: 28px;
+    }
+    .performance-dashboard {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .progress-item {
+        grid-template-columns: 140px 1fr 50px;
+        gap: 14px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Fees Page — Tablet (<=1024px) ==================== */
+
+@media (max-width: 1024px) {
+    .fees-page {
+        padding: 0 20px 30px;
+    }
+    .fees-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .fees-card {
+        padding: 20px;
+    }
+    .fees-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+    .fees-info h2 {
+        font-size: 28px;
+    }
+    .fees-overview {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .breakdown-item {
+        grid-template-columns: 110px 1fr 60px;
+        gap: 14px;
+    }
+    .payment-circle {
+        width: 130px;
+        height: 130px;
+    }
+    .payment-circle h1 {
+        font-size: 30px;
     }
 }

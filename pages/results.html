@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | CodeQuantum Student Portal</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <div class="atom-logo">
+
+                    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+ 
+                        <!-- Orbit Rings -->
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#a78bfa"
+                            stroke-width="6"
+                            transform="rotate(60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#8b7ff0"
+                            stroke-width="6"
+                            transform="rotate(-60 120 100)" />
+ 
+                        <ellipse cx="120" cy="100" rx="100" ry="40"
+                            fill="none"
+                            stroke="#c7d2fe"
+                            stroke-width="4" />
+ 
+                        <!-- Electrons -->
+                        <circle cx="16" cy="118" r="9" fill="#7c3aed" />
+                        <circle cx="222" cy="82" r="9" fill="#5b6ee8" />
+ 
+                        <!-- Center -->
+                        <g transform="translate(120,100)">
+                            <text
+                                x="-38"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&lt;</text>
+ 
+                            <circle cx="0" cy="0" r="6" fill="#1e2144" />
+ 
+                            <text
+                                x="18"
+                                y="8"
+                                font-family="Menlo, Consolas, monospace"
+                                font-size="34"
+                                font-weight="600"
+                                fill="#1e2144">&gt;</text>
+                        </g>
+ 
+                    </svg>
+
+                </div>
+
+                <div class="logo-text">
+                    <h1>CodeQuantum</h1>
+                    <p>Student Portal</p>
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <h3 class="menu-title">MENU</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="assignments.html">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>Assignments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="attendance.html">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="timetables.html">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Timetable</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="results.html" class="active" aria-current="page">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Results</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fees.html">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Fees</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="logout">
+
+                <button type="button">
+ 
+                    <i class="fa-solid fa-right-from-bracket"></i>
+ 
+                    <span>Logout</span>
+ 
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!--  Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="header">
+
+                <!-- Header Left -->
+                <div class="header-left">
+
+                    <!-- Menu Button -->
+                    <button type="button" id="menuToggle" class="menu-toggle" aria-label="Open Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <!-- Search -->
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="search" placeholder="Search courses, assignments..." aria-label="Search">
+
+                    </div>
+
+                </div>
+
+                <!-- Header Right -->
+                <div class="header-right">
+
+                    <!-- Notifications -->
+                    <button type="button" class="icon-button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+
+                    <!-- Dark Mode -->
+                    <button type="button" id="themeToggle" class="icon-button" aria-label="Toggle Theme">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+
+                    <!-- Profile -->
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            AK
+                        </div>
+
+                        <div class="profile-info">
+                            <h4>Alamgir Khan</h4>
+                            <p>Frontend Student</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Results -->
+            <section class="results-page">
+
+                <!-- ========================================================= -->
+                <!-- Page Header -->
+                <!-- ========================================================= -->
+
+                <div class="page-header">
+
+                    <div class="page-title">
+
+                        <h2>Academic Results</h2>
+
+                        <p>
+                            Track your semester performance, GPA, grades, and academic achievements.
+                        </p>
+
+                    </div>
+
+                    <button type="button" class="primary-btn">
+ 
+                        <i class="fa-solid fa-download"></i>
+ 
+                        Download Result
+ 
+                    </button>
+
+                </div>
+
+                <!-- ========================================================= -->
+                <!-- Results Statistics -->
+                <!-- ========================================================= -->
+                <div class="results-stats">
+
+                    <!-- Current GPA -->
+                    <div class="result-card">
+                        <div class="result-icon gpa">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="result-info">
+                            <h4>Current GPA</h4>
+                            <h2>3.82</h2>
+                            <span>Excellent Performance</span>
+                        </div>
+                    </div>
+
+                    <!-- CGPA -->
+                    <div class="result-card">
+                        <div class="result-icon cgpa">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="result-info">
+                            <h4>Overall CGPA</h4>
+                            <h2>3.75</h2>
+                            <span>Overall Performance</span>
+                        </div>
+                    </div>
+
+                    <!-- Credits -->
+                    <div class="result-card">
+                        <div class="result-icon credits">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div class="result-info">
+                            <h4>Total Credits</h4>
+                            <h2>96</h2>
+                            <span>Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Grade -->
+                    <div class="result-card">
+                        <div class="result-icon grade">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="result-info">
+                            <h4>Overall Grade</h4>
+                            <h2>A+</h2>
+                            <span>Top Performer</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ========================================================= -->
+                <!-- Academic Performance -->
+                <!-- ========================================================= -->
+                <section class="performance-dashboard">
+
+                    <!-- Subject Performance -->
+                    <div class="performance-card">
+
+                        <div class="section-header">
+                            <h2>Subject Performance</h2>
+                        </div>
+
+                        <div class="progress-list">
+
+                            <div class="progress-item">
+                                <span>HTML Fundamentals</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill html-progress" style="width:85%;"></div>
+                                </div>
+                                <strong>85%</strong>
+                            </div>
+
+                            <div class="progress-item">
+                                <span>CSS Mastery</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill css-progress" style="width:88%;"></div>
+                                </div>
+                                <strong>88%</strong>
+                            </div>
+
+                            <div class="progress-item">
+                                <span>JavaScript</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill js-progress" style="width:80%;"></div>
+                                </div>
+                                <strong>80%</strong>
+                            </div>
+
+                            <div class="progress-item">
+                                <span>React Development</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill react-progress" style="width:91%;"></div>
+                                </div>
+                                <strong>91%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Academic Summary -->
+                    <div class="performance-card">
+
+                        <div class="section-header">
+                            <h2>Academic Summary</h2>
+                        </div>
+
+                        <div class="summary-box">
+
+                            <div class="summary-item">
+                                <h3>Best Subject</h3>
+                                <p>React Development</p>
+                            </div>
+
+                            <div class="summary-item">
+                                <h3>Highest Score</h3>
+                                <p>91%</p>
+                            </div>
+
+                            <div class="summary-item">
+                                <h3>Semester Rank</h3>
+                                <p>5th / 120</p>
+                            </div>
+
+                            <div class="summary-item">
+                                <h3>CGPA</h3>
+                                <p>3.75 / 4.00</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/results.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

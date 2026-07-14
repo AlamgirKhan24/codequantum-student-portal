@@ -1,130 +1,697 @@
-/* Mobile */
+/* ===========================================================
+   Mobile Phones
+   Breakpoint: max-width 480px
+=========================================================== */
 
-@media (max-width:768px) {
-    .page-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+@media (max-width: 480px) {
+    /* Header */
+    .header {
+        height: 64px;
+        padding: 0 12px;
     }
-    .course-toolbar {
-        flex-direction: column;
+    .icon-button {
+        width: 40px;
+        height: 40px;
     }
-    .course-search {
-        width: 100%;
+    .header-right {
+        gap: 10px;
     }
-    .course-filter {
-        width: 100%;
+    /* Dashboard */
+    .dashboard {
+        padding: 14px;
+        gap: 18px;
     }
-    .course-filter select {
-        width: 100%;
+    .welcome-text h2 {
+        font-size: 1.25rem;
+    }
+    .welcome-text p {
+        font-size: .9rem;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .card-header {
+        margin-bottom: 18px;
+    }
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .card-body h2 {
+        font-size: 1.8rem;
+    }
+    .section-title h3 {
+        font-size: 1.3rem;
+    }
+    .activity-card,
+    .schedule-card,
+    .progress-section,
+    .assignments-section {
+        padding: 20px;
+    }
+    .assignment-left {
+        gap: 12px;
+    }
+    .assignment-left i {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    .action-card {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 14px;
+    }
+    /* Profile */
+    .page-header h2 {
+        font-size: 1.5rem;
+    }
+    .profile-stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .profile-stat-card {
+        padding: 20px;
+    }
+    .profile-stat-card h3 {
+        font-size: 1.7rem;
+    }
+    .details-card {
+        padding: 18px;
+    }
+    .edit-btn span {
+        display: none;
+    }
+}
+
+
+/*  */
+
+
+/* ===========================================================
+   Mobile Phones
+   Breakpoint: max-width 480px
+=========================================================== */
+
+@media (max-width: 480px) {
+    /* Header */
+    .header {
+        height: 64px;
+        padding: 0 12px;
+    }
+    .icon-button {
+        width: 40px;
+        height: 40px;
+    }
+    .header-right {
+        gap: 10px;
+    }
+    /* Dashboard */
+    .dashboard {
+        padding: 14px;
+        gap: 18px;
+    }
+    .welcome-text h2 {
+        font-size: 1.25rem;
+    }
+    .welcome-text p {
+        font-size: .9rem;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .card-header {
+        margin-bottom: 18px;
+    }
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .card-body h2 {
+        font-size: 1.8rem;
+    }
+    .section-title h3 {
+        font-size: 1.3rem;
+    }
+    .activity-card,
+    .schedule-card,
+    .progress-section,
+    .assignments-section {
+        padding: 20px;
+    }
+    .assignment-left {
+        gap: 12px;
+    }
+    .assignment-left i {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    .action-card {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 14px;
+    }
+    /* Profile */
+    .page-header h2 {
+        font-size: 1.5rem;
+    }
+    .profile-stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .profile-stat-card {
+        padding: 20px;
+    }
+    .profile-stat-card h3 {
+        font-size: 1.7rem;
+    }
+    .details-card {
+        padding: 18px;
+    }
+    .edit-btn span {
+        display: none;
+    }
+    /* Courses */
+    .page-header h2 {
+        font-size: 1.4rem;
     }
     .course-stats {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
-    .featured-course {
-        padding: 25px;
+    .course-stat-card {
+        gap: 12px;
+    }
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+    .stat-content h2 {
+        font-size: 1.5rem;
     }
     .featured-content h2 {
-        font-size: 28px;
+        font-size: 1.5rem;
     }
-    .featured-image {
-        width: 160px;
-        height: 160px;
-        font-size: 90px;
-    }
-}
-
-
-/* Sidebar */
-
-@media (max-width:768px) {
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: -280px;
-        width: 280px;
-        height: 100vh;
-        z-index: 1000;
-        transition: .3s ease;
-    }
-    .sidebar.active {
-        left: 0;
-    }
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-    .menu-toggle {
-        display: flex;
-    }
-}
-
-@media (max-width:767px) {
-    .main-content {
-        margin-left: 0 !important;
-        width: 100% !important;
-        max-width: 100%;
-        padding: 20px;
-    }
-}
-
-
-/* Assignments Mobile */
-
-@media (max-width:767px) {
-    .assignment-stats {
-        grid-template-columns: 1fr;
-    }
-    .assignment-toolbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .assignment-search {
-        width: 100%;
-    }
-    .assignment-filter {
-        width: 100%;
-    }
-    .assignment-filter select {
-        width: 100%;
-    }
-    .assignments-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .assignment-card {
-        padding: 20px;
-    }
-    .assignment-header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .assignment-header h3 {
-        font-size: 20px;
-    }
-    .assignment-meta {
+    .featured-info {
         flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
-    .assignment-footer {
+    .featured-image {
+        display: none;
+    }
+    .course-content {
+        padding: var(--space-md);
+    }
+    .course-content h3 {
+        font-size: 1.1rem;
+    }
+    .course-meta {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        gap: 6px;
+    }
+    .activity-section .activity-card {
+        padding: 14px;
+        gap: 12px;
+    }
+    .activity-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
+}
+
+
+/*  */
+
+
+/* ===========================================================
+   Mobile Phones
+   Breakpoint: max-width 480px
+=========================================================== */
+
+@media (max-width: 480px) {
+    /* Header */
+    .header {
+        height: 64px;
+        padding: 0 12px;
+    }
+    .icon-button {
+        width: 40px;
+        height: 40px;
+    }
+    .header-right {
+        gap: 10px;
+    }
+    /* Dashboard */
+    .dashboard {
+        padding: 14px;
+        gap: 18px;
+    }
+    .welcome-text h2 {
+        font-size: 1.25rem;
+    }
+    .welcome-text p {
+        font-size: .9rem;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .card-header {
+        margin-bottom: 18px;
+    }
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .card-body h2 {
+        font-size: 1.8rem;
+    }
+    .section-title h3 {
+        font-size: 1.3rem;
+    }
+    .activity-card,
+    .schedule-card,
+    .progress-section,
+    .assignments-section {
+        padding: 20px;
+    }
+    .assignment-left {
+        gap: 12px;
+    }
+    .assignment-left i {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    .action-card {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 14px;
+    }
+    /* Profile */
+    .page-header h2 {
+        font-size: 1.5rem;
+    }
+    .profile-stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .profile-stat-card {
+        padding: 20px;
+    }
+    .profile-stat-card h3 {
+        font-size: 1.7rem;
+    }
+    .details-card {
+        padding: 18px;
+    }
+    .edit-btn span {
+        display: none;
+    }
+    /* Courses */
+    .page-header h2 {
+        font-size: 1.4rem;
+    }
+    .course-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .course-stat-card {
+        gap: 12px;
+    }
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+    .stat-content h2 {
+        font-size: 1.5rem;
+    }
+    .featured-content h2 {
+        font-size: 1.5rem;
+    }
+    .featured-info {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .featured-image {
+        display: none;
+    }
+    .course-content {
+        padding: var(--space-md);
+    }
+    .course-content h3 {
+        font-size: 1.1rem;
+    }
+    .course-meta {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .activity-section .activity-card {
+        padding: 14px;
+        gap: 12px;
+    }
+    .activity-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
+    /* Assignments */
+    .assignment-stats {
+        grid-template-columns: 1fr;
     }
     .progress-section {
         grid-template-columns: 1fr;
     }
-    .section-title {
+    .assignment-toolbar {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        align-items: stretch;
+    }
+    .assignment-filter select {
+        width: 100%;
+    }
+    .assignment-header {
+        flex-direction: column;
     }
     .activity-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        flex-wrap: wrap;
     }
     .activity-time {
-        margin-left: 0;
+        margin-left: 70px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Attendance Page — Mobile (<=480px) ==================== */
+
+@media (max-width: 480px) {
+    .attendance-page {
+        padding: 0 14px 24px;
+    }
+    .attendance-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .attendance-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 16px;
+    }
+    .attendance-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .attendance-info h2 {
+        font-size: 22px;
+    }
+    .attendance-calendar,
+    .attendance-history,
+    .attendance-activity,
+    .summary-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .calendar-grid {
+        gap: 4px;
+    }
+    .day-name {
+        font-size: 10px;
+        padding: 4px;
+    }
+    .calendar-day {
+        height: 34px;
+        font-size: 11px;
+        border-radius: 8px;
+    }
+    .calendar-legend {
+        gap: 10px;
+    }
+    .legend {
+        width: 14px;
+        height: 14px;
+    }
+    .attendance-page .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .attendance-page table {
+        min-width: 480px;
+    }
+    .attendance-summary {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .goal-circle {
+        width: 100px;
+        height: 100px;
+        border-width: 6px;
+    }
+    .goal-circle h1 {
+        font-size: 24px;
+    }
+    .streak-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .attendance-page .activity-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 14px;
+    }
+    .attendance-page .activity-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Timetable Page — Mobile (<=480px) ==================== */
+
+@media (max-width: 480px) {
+    .timetable-page {
+        padding: 0 14px 24px;
+    }
+    .timetable-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .timetable-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 16px;
+    }
+    .timetable-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .timetable-info h2 {
+        font-size: 22px;
+    }
+    .weekly-timetable {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .timetable-table {
+        min-width: 640px;
+    }
+    .timetable-table th,
+    .timetable-table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .schedule-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .schedule-time h3 {
+        font-size: 20px;
+    }
+    .join-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .upcoming-classes,
+    .quick-notes {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .timetable-page .upcoming-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 14px;
+    }
+    .timetable-page .subject-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+    .quick-notes li {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Results Page — Mobile (<=480px) ==================== */
+
+@media (max-width: 480px) {
+    .results-page {
+        padding: 0 14px 24px;
+    }
+    .results-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .result-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 16px;
+    }
+    .result-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .result-info h2 {
+        font-size: 22px;
+    }
+    .performance-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .progress-list {
+        gap: 20px;
+    }
+    .progress-item {
+        grid-template-columns: 1fr 46px;
+        row-gap: 6px;
+        column-gap: 10px;
+    }
+    .progress-item span {
+        font-size: 13px;
+    }
+    .progress-item strong {
+        font-size: 13px;
+        text-align: right;
+    }
+    .summary-box {
+        gap: 14px;
+    }
+    .summary-item {
+        padding: 12px;
+        border-radius: 12px;
+    }
+    .summary-item h3 {
+        font-size: 13px;
+    }
+    .summary-item p {
+        font-size: 17px;
+    }
+}
+
+
+/*  */
+
+
+/* ==================== Fees Page — Mobile (<=480px) ==================== */
+
+@media (max-width: 480px) {
+    .fees-page {
+        padding: 0 14px 24px;
+    }
+    .fees-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .fees-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 16px;
+    }
+    .fees-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .fees-info h2 {
+        font-size: 22px;
+    }
+    .fees-panel,
+    .payment-history {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .breakdown-list {
+        gap: 18px;
+    }
+    .breakdown-item {
+        grid-template-columns: 1fr 60px;
+        row-gap: 6px;
+        column-gap: 10px;
+    }
+    .breakdown-item span {
+        font-size: 13px;
+    }
+    .breakdown-item strong {
+        font-size: 13px;
+    }
+    .payment-circle {
+        width: 100px;
+        height: 100px;
+        border-width: 6px;
+    }
+    .payment-circle h1 {
+        font-size: 24px;
+    }
+    .installment-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .fees-table {
+        min-width: 560px;
+    }
+    .fees-table thead th,
+    .fees-table tbody td {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .fees-page .payment-status {
+        padding: 4px 10px;
+        font-size: 12px;
     }
 }

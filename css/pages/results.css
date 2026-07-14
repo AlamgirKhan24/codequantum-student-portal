@@ -1,0 +1,181 @@
+.results-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px 40px;
+}
+
+
+/* ===========================================================
+   Results Statistics
+=========================================================== */
+
+.results-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+}
+
+.result-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: .3s;
+}
+
+.result-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.result-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 26px;
+    flex-shrink: 0;
+}
+
+
+/* Compounded + scoped, same treatment as timetable's .total/.today/.hours/.attendance —
+   .gpa/.cgpa/.credits/.grade were loose top-level classes and "grade" in particular
+   is generic enough to risk colliding elsewhere. */
+
+.results-page .result-icon.gpa {
+    background: var(--primary-color-dark);
+}
+
+.results-page .result-icon.cgpa {
+    background: var(--success-color);
+}
+
+.results-page .result-icon.credits {
+    background: var(--warning-color);
+}
+
+.results-page .result-icon.grade {
+    background: var(--accent-pink);
+}
+
+.result-info h4 {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.result-info h2 {
+    font-size: 32px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.result-info span {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+
+/* ===========================================================
+   Academic Performance
+=========================================================== */
+
+.performance-dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.performance-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.progress-item {
+    display: grid;
+    grid-template-columns: 170px 1fr 60px;
+    align-items: center;
+    gap: 20px;
+}
+
+.progress-item span {
+    font-weight: 600;
+    color: var(--text-muted-dark);
+}
+
+
+/* .progress-bar / .progress-fill repeat (with different styling) in dashboard.css,
+   assignments.css, and attendance.css — scoped here so they don't clash when all
+   page stylesheets load together via main.css. */
+
+.results-page .progress-bar {
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.results-page .progress-fill {
+    height: 100%;
+    border-radius: 30px;
+}
+
+.html-progress {
+    background: var(--accent-orange);
+}
+
+.css-progress {
+    background: var(--info-color);
+}
+
+.js-progress {
+    background: var(--accent-yellow, #facc15);
+}
+
+.react-progress {
+    background: var(--accent-cyan);
+}
+
+.summary-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.summary-item {
+    background: var(--bg-muted);
+    border-radius: 15px;
+    padding: 18px;
+}
+
+.summary-item h3 {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.summary-item p {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+}

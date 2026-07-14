@@ -1,66 +1,132 @@
-/* Desktop 1400 */
+/* ===========================================================Desktop Refinements Breakpoint: min-width 1440px (large / wide screens)=========================================================== */
 
-@media (max-width:1400px) {
-    .main-content {
-        padding: 30px;
+@media (min-width: 1440px) {
+    .container {
+        width: min(88%, var(--container-width));
     }
-    .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .stats-grid {
+        gap: 28px;
     }
-    .course-stats {
-        grid-template-columns: repeat(4, 1fr);
+    .profile-stats {
+        gap: 28px;
+    }
+    .dashboard-bottom {
+        gap: 28px;
+    }
+    .profile-container {
+        grid-template-columns: 340px 1fr;
+    }
+}
+
+@media (min-width: 1800px) {
+    .dashboard,
+    .profile-page {
+        max-width: 1600px;
+        margin-inline: auto;
     }
 }
 
 
-/* Desktop 1200 */
+/*  */
 
-@media (max-width:1200px) {
+
+/* ===========================================================
+   Desktop Refinements
+   Breakpoint: min-width 1440px (large / wide screens)
+=========================================================== */
+
+@media (min-width: 1440px) {
+    .container {
+        width: min(88%, var(--container-width));
+    }
+    .stats-grid {
+        gap: 28px;
+    }
+    .profile-stats {
+        gap: 28px;
+    }
+    .dashboard-bottom {
+        gap: 28px;
+    }
+    .profile-container {
+        grid-template-columns: 340px 1fr;
+    }
+    /* Courses */
     .course-stats {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
     }
     .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
     }
     .featured-course {
-        gap: 30px;
+        padding: 48px;
     }
     .featured-content h2 {
-        font-size: 32px;
+        font-size: 42px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .dashboard,
+    .profile-page {
+        max-width: 1600px;
+        margin-inline: auto;
     }
 }
 
 
-/* Desktop 992 */
+/*  */
 
-@media (max-width:1400px) {
-    .main-content {
-        margin-left: 280px;
-        width: calc(100% - 280px);
+
+/* ===========================================================
+   Desktop Refinements
+   Breakpoint: min-width 1440px (large / wide screens)
+=========================================================== */
+
+@media (min-width: 1440px) {
+    .container {
+        width: min(88%, var(--container-width));
     }
-}
-
-@media (max-width:1200px) {
+    .stats-grid {
+        gap: 28px;
+    }
+    .profile-stats {
+        gap: 28px;
+    }
+    .dashboard-bottom {
+        gap: 28px;
+    }
+    .profile-container {
+        grid-template-columns: 340px 1fr;
+    }
+    /* Courses */
     .course-stats {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
     }
     .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+    }
+    .featured-course {
+        padding: 48px;
+    }
+    .featured-content h2 {
+        font-size: 42px;
+    }
+    /* Assignments */
+    .assignment-stats {
+        gap: 28px;
+    }
+    .progress-section {
+        gap: 28px;
     }
 }
 
-
-/* Assignments Desktop */
-
-@media (max-width:1200px) {
-    .assignment-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .assignments-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-    .progress-section {
-        grid-template-columns: repeat(2, 1fr);
+@media (min-width: 1800px) {
+    .dashboard,
+    .profile-page {
+        max-width: 1600px;
+        margin-inline: auto;
     }
 }

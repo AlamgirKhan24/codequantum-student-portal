@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CodeQuantum Student Portal — monitor your attendance, track your presence, and stay updated with your attendance percentage.">
     <title>Attendance | CodeQuantum Student Portal</title>
 
     <!-- Font Awesome -->
@@ -117,14 +118,14 @@
                     </li>
 
                     <li>
-                        <a href="attendance.html" class="active">
+                        <a href="attendance.html" class="active" aria-current="page">
                             <i class="fa-solid fa-calendar-check"></i>
                             <span>Attendance</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="timetable.html">
+                        <a href="timetables.html">
                             <i class="fa-solid fa-clock"></i>
                             <span>Timetable</span>
                         </a>
@@ -151,7 +152,7 @@
             <!-- Logout -->
             <div class="logout">
 
-                <button>
+                <button type="button">
  
                     <i class="fa-solid fa-right-from-bracket"></i>
  
@@ -173,7 +174,7 @@
                 <div class="header-left">
 
                     <!-- Menu Button -->
-                    <button class="menu-toggle" aria-label="Open Sidebar">
+                    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open Sidebar" aria-expanded="true">
                         <i class="fa-solid fa-bars"></i>
                     </button>
 
@@ -192,20 +193,20 @@
                 <div class="header-right">
 
                     <!-- Notifications -->
-                    <button class="icon-button" aria-label="Notifications">
+                    <button class="icon-button has-badge" type="button" aria-label="Notifications">
                         <i class="fa-regular fa-bell"></i>
                     </button>
 
                     <!-- Dark Mode -->
-                    <button class="icon-button" aria-label="Toggle Theme">
+                    <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle Theme">
                         <i class="fa-regular fa-moon"></i>
                     </button>
 
                     <!-- Profile -->
-                    <div class="profile">
+                    <div class="profile" tabindex="0">
 
                         <div class="profile-avatar">
-                            UK
+                            AK
                         </div>
 
                         <div class="profile-info">
@@ -240,7 +241,7 @@
 
                     </div>
 
-                    <button class="primary-btn">
+                    <button class="primary-btn" type="button">
  
                         <i class="fa-solid fa-calendar-days"></i>
  
@@ -320,7 +321,7 @@
 
                     <div class="calendar-header">
                         <h2>July 2026 Attendance</h2>
-                        <button class="primary-btn">
+                        <button class="primary-btn" type="button">
                             <i class="fa-solid fa-calendar"></i>
                             Monthly View
                         </button>
@@ -399,7 +400,7 @@
 
                     <div class="section-header">
                         <h2>Attendance History</h2>
-                        <button class="primary-btn">
+                        <button class="primary-btn" type="button">
                             <i class="fa-solid fa-download"></i>
                             Export Report
                         </button>
@@ -409,11 +410,11 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Subject</th>
-                                    <th>Teacher</th>
-                                    <th>Status</th>
-                                    <th>Remarks</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Subject</th>
+                                    <th scope="col">Teacher</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Remarks</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -587,6 +588,27 @@
         </main>
 
     </div>
+
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/attendance.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
 
 </body>
 
