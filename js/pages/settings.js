@@ -168,7 +168,7 @@ function ensureConfirmModalExists() {
     `,
     });
 
-    qs('#confirmPasswordChangeBtn') ? .addEventListener('click', () => {
+    qs('#confirmPasswordChangeBtn')?.addEventListener('click', () => {
         qs('#currentPassword').value = '';
         qs('#newPassword').value = '';
         qs('#confirmPassword').value = '';

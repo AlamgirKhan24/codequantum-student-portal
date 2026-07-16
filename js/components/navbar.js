@@ -14,11 +14,6 @@
  *   .profile (click target that should reveal a dropdown — dropdown markup
  *   itself isn't in the HTML yet, see note below)
  */
-
-import CONFIG from '../config/config.js';
-import { getTheme, setTheme } from '../utils/storage.js';
-import { qs, debounce, classNames } from '../utils/helpers.js';
-
 const THEME_ATTR = CONFIG.THEME.attribute; // 'data-theme'
 const SEARCH_EVENT = 'cq:search'; // custom event pages can listen for
 const PROFILE_OPEN_CLASS = 'profile-open';
@@ -31,7 +26,7 @@ let profileEl;
 /**
  * Initialize navbar behavior. Call once per page after DOMContentLoaded.
  */
-export function initNavbar() {
+function initNavbar() {
     themeToggleEl = qs('#themeToggle');
     searchInputEl = qs('.search-box input[type="search"]');
     notificationsBtnEl = qs('.icon-button[aria-label="Notifications"]');
@@ -118,8 +113,8 @@ function bindSearch() {
  * at CONFIG.NOTIFICATIONS.maxBadgeCount (e.g. "9+").
  * @param {number} count
  */
-export function setNotificationBadge(count) {
-    const badgeEl = notificationsBtnEl ? .querySelector('.notification-badge');
+function setNotificationBadge(count) {
+    const badgeEl = notificationsBtnEl?.querySelector('.notification-badge');
     if (!badgeEl) return;
 
     const max = CONFIG.NOTIFICATIONS.maxBadgeCount;

@@ -4,8 +4,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 32px;
-    background-color: var(--white-color);
-    border-bottom: 1px solid #E5E7EB;
+    background-color: var(--surface-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
@@ -64,10 +66,10 @@
     align-items: center;
     gap: 12px;
     padding: 0 20px;
-    background: var(--white-color);
-    border: 1px solid #E5E7EB;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+    box-shadow: var(--shadow-sm);
     transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
 }
 
@@ -97,7 +99,7 @@
 }
 
 .search-box i {
-    color: #64748B;
+    color: var(--text-muted);
     font-size: 18px;
     flex-shrink: 0;
 }
@@ -113,18 +115,19 @@
     align-items: center;
     border: none;
     border-radius: 50%;
-    background: #F8FAFC;
-    color: #475569;
+    background: var(--background-color);
+    color: var(--text-secondary);
     font-size: 16px;
     cursor: pointer;
     position: relative;
-    transition: background-color var(--transition-normal), color var(--transition-normal), transform var(--transition-normal);
+    transition: background-color var(--transition-normal), color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .icon-button:hover {
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
 }
 
 .icon-button:focus-visible {
@@ -158,7 +161,7 @@
 }
 
 .profile:hover {
-    background: #F8FAFC;
+    background: var(--primary-light);
 }
 
 .profile:focus-visible {
@@ -189,12 +192,12 @@
 
 .profile-info p {
     font-size: 13px;
-    color: #64748B;
+    color: var(--text-muted);
 }
 
 .profile i {
     font-size: 13px;
-    color: #64748B;
+    color: var(--text-muted);
     transition: transform var(--transition-normal);
 }
 

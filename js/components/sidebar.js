@@ -14,11 +14,6 @@
  *   <button id="menuToggle"> in the header
  */
 
-import CONFIG from '../config/config.js';
-import { NAV_ITEMS } from '../utils/constants.js';
-import { isSidebarCollapsed, setSidebarCollapsed } from '../utils/storage.js';
-import { qs, qsa, onBreakpointCross, classNames } from '../utils/helpers.js';
-
 const COLLAPSED_CLASS = 'sidebar-collapsed'; // applied to <body>
 const OVERLAY_OPEN_CLASS = 'sidebar-open'; // applied to <body>, mobile-only overlay state
 
@@ -28,7 +23,7 @@ let menuToggleEl;
 /**
  * Initialize sidebar behavior. Call once per page after DOMContentLoaded.
  */
-export function initSidebar() {
+function initSidebar() {
     sidebarEl = qs('.sidebar');
     menuToggleEl = qs('#menuToggle');
 
@@ -59,7 +54,7 @@ function highlightActiveLink() {
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
     qsa('a', sidebarEl).forEach((link) => {
-        const linkPath = link.getAttribute('href') ? .split('/').pop();
+        const linkPath = link.getAttribute('href')?.split('/').pop();
         const isActive = linkPath === currentPath;
 
         link.classList.toggle('active', isActive);
@@ -110,7 +105,7 @@ function bindOutsideClickToClose() {
         if (!isMobileOverlayOpen) return;
 
         const clickedInsideSidebar = sidebarEl.contains(event.target);
-        const clickedToggleButton = menuToggleEl ? .contains(event.target);
+        const clickedToggleButton = menuToggleEl?.contains(event.target);
 
         if (!clickedInsideSidebar && !clickedToggleButton) {
             document.body.classList.remove(OVERLAY_OPEN_CLASS);
@@ -138,6 +133,6 @@ function watchResponsiveBreakpoint() {
  * Exposed for other components (e.g. a page that needs to force-close
  * the sidebar overlay after navigating via a link inside it).
  */
-export function closeMobileOverlay() {
+function closeMobileOverlay() {
     document.body.classList.remove(OVERLAY_OPEN_CLASS);
 }

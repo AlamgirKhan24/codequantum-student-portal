@@ -11,19 +11,21 @@
     gap: 10px;
     padding: 14px 22px;
     border-radius: var(--radius-lg);
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color);
     font-weight: var(--fw-semibold);
     white-space: nowrap;
-    transition: transform var(--transition-normal), opacity var(--transition-normal);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal);
     border: none;
     cursor: pointer;
     font-size: var(--fs-sm);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
 }
 
 .primary-btn:hover {
     transform: translateY(-3px);
     opacity: .95;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.28);
 }
 
 .primary-btn:active {
@@ -80,7 +82,7 @@
     width: 100%;
     padding: 13px 18px;
     border-radius: var(--radius-lg);
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color);
     font-size: var(--fs-sm);
     font-weight: var(--fw-semibold);
@@ -88,17 +90,20 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: background-color var(--transition-normal), transform var(--transition-fast);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal);
     border: none;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
 }
 
 .submit-btn:hover {
-    background: #4f46e5;
+    transform: translateY(-2px);
+    opacity: .95;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.28);
 }
 
 .submit-btn:active {
-    transform: scale(.98);
+    transform: scale(.98) translateY(0);
 }
 
 .submit-btn.completed {
@@ -122,21 +127,24 @@
     width: 100%;
     padding: 14px;
     border-radius: var(--radius-lg);
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color);
     font-weight: var(--fw-semibold);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    transition: background-color var(--transition-normal);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal);
     border: none;
     cursor: pointer;
     font-size: var(--fs-sm);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
 }
 
 .continue-btn:hover {
-    background: #4f46e5;
+    transform: translateY(-2px);
+    opacity: .95;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.28);
 }
 
 
@@ -145,18 +153,20 @@
 .join-btn {
     padding: 12px 24px;
     border-radius: var(--radius-lg);
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color);
     font-weight: var(--fw-semibold);
     border: none;
     cursor: pointer;
-    transition: transform var(--transition-normal), opacity var(--transition-normal);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal);
     font-size: var(--fs-sm);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
 }
 
 .join-btn:hover {
     transform: translateY(-2px);
     opacity: .95;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.28);
 }
 
 
@@ -165,7 +175,7 @@
 .edit-btn {
     padding: 10px 20px;
     border-radius: var(--radius-lg);
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color);
     font-weight: var(--fw-medium);
     display: inline-flex;
@@ -173,13 +183,15 @@
     gap: 8px;
     border: none;
     cursor: pointer;
-    transition: transform var(--transition-normal), opacity var(--transition-normal);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-normal);
     font-size: var(--fs-sm);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
 }
 
 .edit-btn:hover {
     transform: translateY(-2px);
     opacity: .95;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.28);
 }
 
 
@@ -192,7 +204,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: var(--primary-gradient);
     color: var(--white-color);
     border: 3px solid var(--white-color);
     display: flex;
@@ -242,7 +254,7 @@
     width: 100%;
     padding: 12px 24px;
     border-radius: var(--radius-lg);
-    background: #eef2ff;
+    background: var(--primary-light);
     color: var(--primary-color);
     font-weight: var(--fw-semibold);
     display: flex;
@@ -251,11 +263,12 @@
     gap: 10px;
     border: none;
     cursor: pointer;
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
+    transition: transform var(--transition-normal), background-color var(--transition-normal), box-shadow var(--transition-normal);
     font-size: var(--fs-sm);
 }
 
 .logout button:hover {
-    background: #dbeafe;
+    background: rgba(99, 102, 241, 0.14);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }

@@ -10,8 +10,6 @@
  *     IndexedDB, or a real API) without touching every page file
  */
 
-import CONFIG from '../config/config.js';
-
 const PREFIX_CHECKED_KEYS = new Set(Object.values(CONFIG.STORAGE_KEYS));
 
 /**
@@ -34,7 +32,7 @@ function assertKnownKey(key) {
  * @param {*} fallback - returned if the key is missing or unreadable
  * @returns {*}
  */
-export function getItem(key, fallback = null) {
+function getItem(key, fallback = null) {
     assertKnownKey(key);
     try {
         const raw = localStorage.getItem(key);
@@ -54,7 +52,7 @@ export function getItem(key, fallback = null) {
  * @param {*} value
  * @returns {boolean} whether the write succeeded
  */
-export function setItem(key, value) {
+function setItem(key, value) {
     assertKnownKey(key);
     try {
         localStorage.setItem(key, JSON.stringify(value));
@@ -72,7 +70,7 @@ export function setItem(key, value) {
  * Remove a single key.
  * @param {string} key
  */
-export function removeItem(key) {
+function removeItem(key) {
     assertKnownKey(key);
     try {
         localStorage.removeItem(key);
@@ -87,7 +85,7 @@ export function removeItem(key) {
  * NOT call localStorage.clear(), so it never touches unrelated data if
  * this app ever shares an origin with something else.
  */
-export function clearAppStorage() {
+function clearAppStorage() {
     Object.values(CONFIG.STORAGE_KEYS).forEach((key) => removeItem(key));
 }
 
@@ -98,7 +96,7 @@ export function clearAppStorage() {
  * banner instead of silently failing every write.
  * @returns {boolean}
  */
-export function isStorageAvailable() {
+function isStorageAvailable() {
     const testKey = '__cq_storage_test__';
     try {
         localStorage.setItem(testKey, '1');
@@ -115,26 +113,26 @@ export function isStorageAvailable() {
 // the exact CONFIG.STORAGE_KEYS.theme string each time.
 // ---------------------------------------------------------------
 
-export function getTheme() {
+function getTheme() {
     return getItem(CONFIG.STORAGE_KEYS.theme, CONFIG.THEME.default);
 }
 
-export function setTheme(theme) {
+function setTheme(theme) {
     return setItem(CONFIG.STORAGE_KEYS.theme, theme);
 }
 
-export function isSidebarCollapsed() {
+function isSidebarCollapsed() {
     return getItem(CONFIG.STORAGE_KEYS.sidebarCollapsed, false);
 }
 
-export function setSidebarCollapsed(collapsed) {
+function setSidebarCollapsed(collapsed) {
     return setItem(CONFIG.STORAGE_KEYS.sidebarCollapsed, collapsed);
 }
 
-export function getUserProfile() {
+function getUserProfile() {
     return getItem(CONFIG.STORAGE_KEYS.userProfile, null);
 }
 
-export function setUserProfile(profile) {
+function setUserProfile(profile) {
     return setItem(CONFIG.STORAGE_KEYS.userProfile, profile);
 }
