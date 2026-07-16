@@ -34,7 +34,7 @@
 }
 
 .profile-stat-card {
-    background: var(--white-color);
+    background: var(--surface-color);
     border-radius: var(--card-radius);
     padding: var(--space-xl);
     text-align: center;
@@ -106,7 +106,7 @@
 =========================================================== */
 
 .profile-card {
-    background: var(--white-color);
+    background: var(--surface-color);
     border-radius: var(--card-radius);
     box-shadow: var(--shadow-md);
     border: 1px solid #e2e8f0;
@@ -257,7 +257,7 @@
 }
 
 .details-card {
-    background: var(--white-color);
+    background: var(--surface-color);
     border-radius: var(--card-radius);
     padding: var(--space-xl);
     box-shadow: var(--shadow-md);
