@@ -35,6 +35,8 @@ function initNavbar() {
     applyStoredTheme();
     bindThemeToggle();
     bindSearch();
+    bindMobileSearchToggle();
+    bindHeaderScrollState();
     bindNotifications();
     bindProfileDropdown();
 }
@@ -102,6 +104,80 @@ function bindSearch() {
     searchInputEl.addEventListener('input', (event) => {
         dispatchSearch(event.target.value.trim());
     });
+}
+
+/**
+ * On narrow screens the full search field is hidden and replaced by a round
+ * search icon. Clicking it slides the field down as a panel and focuses it;
+ * clicking the icon again, pressing Escape, or clicking outside closes it.
+ * The button is injected here so all pages get it without editing markup.
+ */
+function bindMobileSearchToggle() {
+    const searchBox = qs('.search-box');
+    const headerEl = qs('.header');
+    if (!searchBox || !headerEl) return;
+
+    // Build the trigger once and place it just before the search field.
+    let toggleBtn = qs('.search-toggle');
+    if (!toggleBtn) {
+        toggleBtn = document.createElement('button');
+        toggleBtn.type = 'button';
+        toggleBtn.className = 'search-toggle';
+        toggleBtn.setAttribute('aria-label', 'Search');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>';
+        searchBox.parentElement.insertBefore(toggleBtn, searchBox);
+    }
+
+    const openSearch = () => {
+        headerEl.classList.add('search-open');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        // Focus the field once it's visible so typing starts immediately.
+        setTimeout(() => searchInputEl?.focus(), 50);
+    };
+
+    const closeSearch = () => {
+        headerEl.classList.remove('search-open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    toggleBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (headerEl.classList.contains('search-open')) {
+            closeSearch();
+        } else {
+            openSearch();
+        }
+    });
+
+    // Outside click / Escape close, but only while the panel is open.
+    document.addEventListener('click', (event) => {
+        if (!headerEl.classList.contains('search-open')) return;
+        if (searchBox.contains(event.target) || toggleBtn.contains(event.target)) return;
+        closeSearch();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && headerEl.classList.contains('search-open')) {
+            closeSearch();
+        }
+    });
+}
+
+/**
+ * Adds a subtle shadow/opacity shift to the header once the page has
+ * scrolled, so it reads as a floating layer rather than a flat strip.
+ */
+function bindHeaderScrollState() {
+    const headerEl = qs('.header');
+    const scrollHost = qs('.main-content') || window;
+    if (!headerEl) return;
+
+    const getScroll = () => (scrollHost === window ? window.scrollY : scrollHost.scrollTop);
+    const update = () => headerEl.classList.toggle('scrolled', getScroll() > 4);
+
+    update();
+    scrollHost.addEventListener('scroll', update, { passive: true });
 }
 
 // ---------------------------------------------------------------

@@ -607,3 +607,51 @@
         font-size: 13px;
     }
 }
+
+
+/* ===========================================================
+   Mobile search — collapse the inline field into a tap-to-open
+   panel. Below 768px the full .search-box is hidden by the rules
+   above; here we swap in the round .search-toggle icon and, when
+   navbar.js adds .search-open to the header, slide the field down
+   as a full-width panel beneath the header.
+=========================================================== */
+
+@media (max-width: 768px) {
+    .search-toggle {
+        display: flex;
+    }
+
+    /* Off-canvas by default: the field lives just below the header and is
+       hidden until opened, so it never competes with the header controls. */
+    .header .search-box {
+        display: flex;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
+        width: auto;
+        height: 50px;
+        background: var(--surface-color);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+        z-index: var(--z-sticky);
+    }
+
+    .header.search-open .search-box {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* While the search panel is open, the trigger reads as active. */
+    .header.search-open .search-toggle {
+        background: var(--primary-light);
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+}
