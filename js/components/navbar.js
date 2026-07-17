@@ -86,24 +86,276 @@ function updateThemeIcon(theme) {
 // Search
 // ---------------------------------------------------------------
 
+// ---------------------------------------------------------------
+// Search — command palette
+// ---------------------------------------------------------------
+
 /**
- * Dispatches a debounced custom event on input rather than filtering
- * anything here directly — navbar.js shouldn't need to know what a
- * "course" or "assignment" is. Individual page scripts (assignments.js,
- * courses.js, etc.) listen for this and filter their own data:
- *
- *   document.addEventListener('cq:search', (e) => { ... e.detail.query ... });
+ * A static index of everywhere the user can jump to from search. Pages map to
+ * the sidebar destinations; quick actions are common tasks that deep-link into
+ * a page (or run a small bit of behavior, like toggling the theme). Keywords
+ * widen what each entry matches without cluttering its visible title.
+ */
+const SEARCH_PAGES = [
+    { title: 'Dashboard', sub: 'Overview & stats', icon: 'fa-house', file: 'index', keywords: 'home overview main' },
+    { title: 'Profile', sub: 'Your account details', icon: 'fa-user', file: 'profile.html', keywords: 'account me bio' },
+    { title: 'Courses', sub: 'Enrolled subjects', icon: 'fa-book-open', file: 'courses.html', keywords: 'subjects classes enroll' },
+    { title: 'Assignments', sub: 'Tasks & submissions', icon: 'fa-file-lines', file: 'assignments.html', keywords: 'homework tasks submit due' },
+    { title: 'Attendance', sub: 'Presence record', icon: 'fa-calendar-check', file: 'attendance.html', keywords: 'present absent calendar' },
+    { title: 'Timetable', sub: 'Weekly schedule', icon: 'fa-clock', file: 'timetables.html', keywords: 'schedule classes routine timetables' },
+    { title: 'Results', sub: 'Grades & performance', icon: 'fa-chart-column', file: 'results.html', keywords: 'grades marks gpa scores' },
+    { title: 'Fees', sub: 'Payments & installments', icon: 'fa-wallet', file: 'fees.html', keywords: 'payment money installment tuition' },
+    { title: 'Notices', sub: 'Announcements', icon: 'fa-bullhorn', file: 'notices.html', keywords: 'announcements news updates' },
+    { title: 'Settings', sub: 'Preferences', icon: 'fa-gear', file: 'settings.html', keywords: 'preferences options config account' },
+];
+
+const SEARCH_ACTIONS = [
+    { title: 'Submit an assignment', sub: 'Go to Assignments', icon: 'fa-cloud-arrow-up', file: 'assignments.html', keywords: 'upload submit hand in homework' },
+    { title: 'Pay fees', sub: 'Go to Fees', icon: 'fa-credit-card', file: 'fees.html', keywords: 'pay installment tuition money' },
+    { title: "Today's classes", sub: 'Go to Timetable', icon: 'fa-calendar-day', file: 'timetables.html', keywords: 'schedule today classes routine' },
+    { title: 'Check my grades', sub: 'Go to Results', icon: 'fa-award', file: 'results.html', keywords: 'grades marks results scores gpa' },
+    { title: 'Toggle dark mode', sub: 'Switch theme', icon: 'fa-circle-half-stroke', action: 'theme', keywords: 'dark light theme night mode appearance' },
+];
+
+let searchResultsEl;
+let searchHintEl;
+let searchActiveIndex = -1; // highlighted row for keyboard nav
+let searchFlatItems = []; // currently-rendered items, in display order
+
+/**
+ * Resolves an index entry's destination to a href correct for the current
+ * page depth. 'index' is the dashboard at the site root; everything else
+ * lives under /pages/.
+ */
+function searchHrefFor(entry) {
+    if (entry.file === 'index') return indexHref();
+    return pagesHref(entry.file);
+}
+
+/**
+ * Wires the header search into a small command palette: it still dispatches
+ * the debounced cq:search event (so page scripts can filter their own data),
+ * but now also shows a live, grouped results dropdown, supports keyboard
+ * navigation, and can be summoned from anywhere with Cmd/Ctrl+K.
  */
 function bindSearch() {
     if (!searchInputEl) return;
+
+    buildSearchUI();
 
     const dispatchSearch = debounce((query) => {
         document.dispatchEvent(new CustomEvent(SEARCH_EVENT, { detail: { query } }));
     }, 300);
 
     searchInputEl.addEventListener('input', (event) => {
-        dispatchSearch(event.target.value.trim());
+        const value = event.target.value.trim();
+        renderSearchResults(value);
+        dispatchSearch(value);
     });
+
+    // Re-open the panel when returning focus to a field that already has text.
+    searchInputEl.addEventListener('focus', () => {
+        renderSearchResults(searchInputEl.value.trim());
+    });
+
+    searchInputEl.addEventListener('keydown', onSearchKeydown);
+
+    // Close on outside click / Escape (Escape also blurs so the cue returns).
+    document.addEventListener('click', (event) => {
+        const box = searchInputEl.closest('.search-box');
+        if (box && !box.contains(event.target)) closeSearchResults();
+    });
+
+    // Global shortcut: Cmd+K (mac) / Ctrl+K focuses and opens search.
+    document.addEventListener('keydown', (event) => {
+        if ((event.metaKey || event.ctrlKey) && (event.key === 'k' || event.key === 'K')) {
+            event.preventDefault();
+            focusHeaderSearch();
+        }
+    });
+}
+
+/** Injects the ⌘K hint badge and the results container into the search box. */
+function buildSearchUI() {
+    const box = searchInputEl.closest('.search-box');
+    if (!box) return;
+
+    if (!box.querySelector('.search-hint')) {
+        searchHintEl = document.createElement('span');
+        searchHintEl.className = 'search-hint';
+        searchHintEl.setAttribute('aria-hidden', 'true');
+        // Show the platform-appropriate modifier so the cue reads right on Mac.
+        const isMac = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent);
+        searchHintEl.textContent = isMac ? '⌘K' : 'Ctrl K';
+        box.appendChild(searchHintEl);
+    }
+
+    searchResultsEl = box.querySelector('.search-results');
+    if (!searchResultsEl) {
+        searchResultsEl = document.createElement('div');
+        searchResultsEl.className = 'search-results';
+        searchResultsEl.setAttribute('role', 'listbox');
+        box.appendChild(searchResultsEl);
+    }
+
+    // ARIA hooks for the combobox relationship.
+    searchInputEl.setAttribute('role', 'combobox');
+    searchInputEl.setAttribute('aria-expanded', 'false');
+    searchInputEl.setAttribute('aria-autocomplete', 'list');
+}
+
+/** Case-insensitive match against an entry's title, subtitle, and keywords. */
+function searchMatches(entry, q) {
+    if (!q) return true;
+    const hay = `${entry.title} ${entry.sub || ''} ${entry.keywords || ''}`.toLowerCase();
+    return hay.includes(q);
+}
+
+/**
+ * Filters both groups against the query and (re)paints the dropdown. An empty
+ * query shows everything, so the palette doubles as a quick-jump menu.
+ */
+function renderSearchResults(rawQuery) {
+    if (!searchResultsEl) return;
+    const box = searchInputEl.closest('.search-box');
+    const q = (rawQuery || '').toLowerCase();
+
+    const pages = SEARCH_PAGES.filter((e) => searchMatches(e, q));
+    const actions = SEARCH_ACTIONS.filter((e) => searchMatches(e, q));
+
+    searchFlatItems = [];
+    searchActiveIndex = -1;
+
+    let html = '';
+    if (pages.length) {
+        html += '<span class="search-group-label">Pages</span>';
+        pages.forEach((e) => { html += searchRowHtml(e, 'page', searchFlatItems.length); searchFlatItems.push(e); });
+    }
+    if (actions.length) {
+        html += '<span class="search-group-label">Quick actions</span>';
+        actions.forEach((e) => { html += searchRowHtml(e, 'action', searchFlatItems.length); searchFlatItems.push(e); });
+    }
+    if (!pages.length && !actions.length) {
+        html = `<p class="search-empty">No matches for <strong>${escapeSearchText(rawQuery)}</strong></p>`;
+    }
+
+    searchResultsEl.innerHTML = html;
+    box.classList.add('results-open');
+    searchInputEl.setAttribute('aria-expanded', 'true');
+
+    // Clicking a row activates it (mousedown so it beats the input losing focus).
+    searchResultsEl.querySelectorAll('.search-result').forEach((row) => {
+        row.addEventListener('mousedown', (event) => {
+            event.preventDefault();
+            activateSearchItem(Number(row.dataset.index));
+        });
+    });
+}
+
+function searchRowHtml(entry, kind, index) {
+    const iconClass = kind === 'action' ? 'search-result-icon action' : 'search-result-icon';
+    return `
+        <div class="search-result" role="option" data-index="${index}">
+            <span class="${iconClass}"><i class="fa-solid ${entry.icon}" aria-hidden="true"></i></span>
+            <span class="search-result-body">
+                <span class="search-result-title">${escapeSearchText(entry.title)}</span>
+                <span class="search-result-sub">${escapeSearchText(entry.sub || '')}</span>
+            </span>
+            <i class="fa-solid fa-arrow-turn-down search-result-go" aria-hidden="true"></i>
+        </div>`;
+}
+
+/** Minimal HTML-escape so query text / titles can't inject markup. */
+function escapeSearchText(str) {
+    return String(str).replace(/[&<>"']/g, (c) => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+}
+
+function closeSearchResults() {
+    const box = searchInputEl?.closest('.search-box');
+    if (box) box.classList.remove('results-open');
+    searchInputEl?.setAttribute('aria-expanded', 'false');
+    searchActiveIndex = -1;
+}
+
+/** Focuses the header search, opening the panel; also reveals it on mobile. */
+function focusHeaderSearch() {
+    const headerEl = qs('.header');
+    const collapsed = headerEl && !headerEl.classList.contains('search-open');
+
+    const doFocus = () => {
+        searchInputEl.focus();
+        searchInputEl.select();
+        renderSearchResults(searchInputEl.value.trim());
+    };
+
+    if (collapsed) {
+        // On narrow screens the field is collapsed and transitions in from
+        // visibility:hidden — it isn't focusable until that flips, so reveal
+        // it first and defer the focus (matches the mobile toggle's timing).
+        headerEl.classList.add('search-open');
+        setTimeout(doFocus, 60);
+    } else {
+        doFocus();
+    }
+}
+
+function setActiveSearchRow(index) {
+    const rows = searchResultsEl.querySelectorAll('.search-result');
+    rows.forEach((r) => r.classList.remove('is-active'));
+    if (index >= 0 && rows[index]) {
+        rows[index].classList.add('is-active');
+        rows[index].scrollIntoView({ block: 'nearest' });
+    }
+    searchActiveIndex = index;
+}
+
+function onSearchKeydown(event) {
+    const box = searchInputEl.closest('.search-box');
+    const open = box && box.classList.contains('results-open');
+
+    switch (event.key) {
+        case 'ArrowDown':
+            if (!open) { renderSearchResults(searchInputEl.value.trim()); return; }
+            event.preventDefault();
+            setActiveSearchRow(Math.min(searchActiveIndex + 1, searchFlatItems.length - 1));
+            break;
+        case 'ArrowUp':
+            if (!open) return;
+            event.preventDefault();
+            setActiveSearchRow(Math.max(searchActiveIndex - 1, 0));
+            break;
+        case 'Enter':
+            if (open && searchActiveIndex >= 0) {
+                event.preventDefault();
+                activateSearchItem(searchActiveIndex);
+            }
+            break;
+        case 'Escape':
+            if (open) {
+                event.preventDefault();
+                closeSearchResults();
+                searchInputEl.blur();
+            }
+            break;
+    }
+}
+
+/** Runs a result: navigates for pages/link-actions, or handles inline actions. */
+function activateSearchItem(index) {
+    const entry = searchFlatItems[index];
+    if (!entry) return;
+
+    if (entry.action === 'theme') {
+        themeToggleEl?.click();
+        closeSearchResults();
+        searchInputEl.blur();
+        return;
+    }
+
+    const href = searchHrefFor(entry);
+    if (href) window.location.href = href;
 }
 
 /**

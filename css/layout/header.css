@@ -108,6 +108,7 @@
     background: var(--surface-muted);
     border: 1px solid transparent;
     border-radius: 50px;
+    position: relative;
     transition: border-color var(--transition-normal), background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
@@ -145,6 +146,157 @@
 
 .search-box:focus-within i {
     color: var(--primary-color);
+}
+
+/* ⌘K hint badge — a small keycap sitting at the right edge of the field,
+   telling the user they can summon search from anywhere. Hidden once they
+   focus the field (the cue has done its job and the caret needs the room). */
+.search-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    padding: 3px 8px;
+    border-radius: 7px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 11.5px;
+    font-weight: var(--fw-semibold);
+    line-height: 1;
+    letter-spacing: .3px;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+}
+
+.search-box:focus-within .search-hint {
+    opacity: 0;
+}
+
+/* Results dropdown — the command-palette panel that opens under the field
+   as the user types. Grouped into sections (Pages / Quick actions) with a
+   keyboard-highlightable active row. */
+.search-results {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    padding: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+    z-index: var(--z-dropdown, 1100);
+    max-height: min(70vh, 460px);
+    overflow-y: auto;
+}
+
+.search-box.results-open .search-results {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-group-label {
+    display: block;
+    padding: 10px 12px 6px;
+    font-size: 11px;
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: var(--text-muted);
+}
+
+.search-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 11px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.search-result:hover,
+.search-result.is-active {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+}
+
+.search-result-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 15px;
+    background: var(--tile-primary-bg);
+    color: var(--tile-primary-fg);
+}
+
+.search-result-icon.action {
+    background: var(--tile-info-bg);
+    color: var(--tile-info-fg);
+}
+
+.search-result-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.search-result-title {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-sub {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-go {
+    flex-shrink: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.search-result:hover .search-result-go,
+.search-result.is-active .search-result-go {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.search-empty {
+    padding: 22px 16px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+}
+
+.search-empty strong {
+    color: var(--text-secondary);
+    font-weight: var(--fw-semibold);
 }
 
 

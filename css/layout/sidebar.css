@@ -111,28 +111,42 @@
 .navigation a {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 16px;
+    gap: 14px;
+    padding: 11px 16px;
     color: #cbd5e1;
     border-radius: var(--radius-md);
     font-size: var(--fs-sm);
     font-weight: var(--fw-medium);
     position: relative;
-    transition: background-color var(--transition-fast), color var(--transition-fast), padding-left var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
+/* Icon sits in a subtle recessed tile so the rail reads as a set of aligned
+   controls rather than loose glyphs — and gives the hover/active states a
+   clear focal element to accent. */
 .navigation a i {
-    width: 20px;
-    font-size: 16px;
-    text-align: center;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
     flex-shrink: 0;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, .05);
     color: inherit;
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .navigation a:hover {
     background-color: rgba(255, 255, 255, .06);
     color: var(--white-color);
-    padding-left: 20px;
+    transform: translateX(3px);
+}
+
+.navigation a:hover i {
+    background: rgba(255, 255, 255, .12);
+    transform: scale(1.05);
 }
 
 .navigation a:focus-visible {
@@ -140,22 +154,30 @@
     outline-offset: 2px;
 }
 
+/* Active item: a calm tinted surface with a left accent bar instead of the
+   loud full gradient + outer glow — consistent with the header refresh. */
 .navigation a.active {
+    background: rgba(99, 102, 241, .16);
+    color: var(--white-color);
+    box-shadow: inset 0 0 0 1px rgba(129, 140, 248, .3);
+}
+
+.navigation a.active i {
     background: var(--primary-gradient);
     color: var(--white-color);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, .35);
 }
 
 .navigation a.active::before {
     content: "";
     position: absolute;
-    left: -4px;
+    left: -8px;
     top: 50%;
     transform: translateY(-50%);
     width: 4px;
-    height: 50%;
-    border-radius: var(--radius-sm);
-    background-color: var(--white-color);
+    height: 60%;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: var(--primary-gradient);
 }
 
 
@@ -164,6 +186,7 @@
 .logout {
     margin-top: auto;
     padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, .07);
 }
 
 .logout button {
@@ -172,17 +195,21 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-top: var(--space-md);
     padding: var(--space-md);
     border-radius: var(--radius-md);
-    background-color: var(--danger-color);
-    color: var(--white-color);
+    background-color: rgba(244, 63, 94, .12);
+    color: #fda4af;
+    border: 1px solid rgba(244, 63, 94, .22);
     font-size: var(--fs-sm);
-    font-weight: var(--fw-medium);
-    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    font-weight: var(--fw-semibold);
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .logout button:hover {
-    opacity: .9;
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    border-color: var(--danger-color);
     transform: translateY(-1px);
 }
 
