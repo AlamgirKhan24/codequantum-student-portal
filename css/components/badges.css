@@ -6,10 +6,12 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 9px 16px;
+    padding: 7px 13px;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
     background: var(--primary-light);
     color: var(--primary-color);
 }

@@ -655,3 +655,19 @@
         border-color: var(--primary-color);
     }
 }
+
+
+/* ===========================================================
+   Phones (<=480px) — the two-column stat grid above squeezes
+   each card so tight that the growth badge collides with the
+   icon. Drop to a single column here (this block is imported
+   after mobile.css, so it authoritatively wins) so every card
+   has room to breathe.
+=========================================================== */
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
