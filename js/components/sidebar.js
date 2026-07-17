@@ -14,11 +14,13 @@
  *   <button id="menuToggle"> in the header
  */
 
-const COLLAPSED_CLASS = 'sidebar-collapsed'; // applied to <body>
-const OVERLAY_OPEN_CLASS = 'sidebar-open'; // applied to <body>, mobile-only overlay state
+const COLLAPSED_CLASS = 'sidebar-collapsed'; // applied to .app (desktop collapse)
+const OVERLAY_OPEN_CLASS = 'sidebar-open'; // applied to .app (mobile slide-in overlay)
 
 let sidebarEl;
 let menuToggleEl;
+let appEl;
+let backdropEl;
 
 /**
  * Initialize sidebar behavior. Call once per page after DOMContentLoaded.
@@ -26,17 +28,35 @@ let menuToggleEl;
 function initSidebar() {
     sidebarEl = qs('.sidebar');
     menuToggleEl = qs('#menuToggle');
+    appEl = qs('.app') || document.body;
 
     if (!sidebarEl) {
         console.warn('[sidebar] .sidebar element not found on this page.');
         return;
     }
 
+    createBackdrop();
     highlightActiveLink();
     restoreCollapsedState();
     bindMenuToggle();
+    bindNavLinkClose();
     bindOutsideClickToClose();
     watchResponsiveBreakpoint();
+}
+
+/**
+ * Dim backdrop shown behind the slide-in sidebar on mobile. Clicking it
+ * closes the overlay. Created once and reused; visibility is driven by the
+ * .sidebar-open class in CSS.
+ */
+function createBackdrop() {
+    backdropEl = qs('.sidebar-backdrop');
+    if (!backdropEl) {
+        backdropEl = document.createElement('div');
+        backdropEl.className = 'sidebar-backdrop';
+        appEl.appendChild(backdropEl);
+    }
+    backdropEl.addEventListener('click', closeMobileOverlay);
 }
 
 // ---------------------------------------------------------------
@@ -51,11 +71,21 @@ function initSidebar() {
  * timetable.html/timetables.html link inconsistency across pages.
  */
 function highlightActiveLink() {
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    // Normalize to a bare page name without the .html extension, since the
+    // dev/prod server may serve "/pages/assignments" or "/pages/assignments.html"
+    // — comparing the raw pathname to the href would miss when the extension
+    // is stripped, leaving no nav item highlighted.
+    const normalize = (path) => {
+        const file = (path || '').split('/').pop().split('?')[0].split('#')[0];
+        if (!file) return 'index';
+        return file.replace(/\.html$/, '');
+    };
+
+    const currentPage = normalize(window.location.pathname);
 
     qsa('a', sidebarEl).forEach((link) => {
-        const linkPath = link.getAttribute('href')?.split('/').pop();
-        const isActive = linkPath === currentPath;
+        const linkPage = normalize(link.getAttribute('href'));
+        const isActive = linkPage === currentPage;
 
         link.classList.toggle('active', isActive);
         if (isActive) {
@@ -72,7 +102,7 @@ function highlightActiveLink() {
 
 function restoreCollapsedState() {
     const collapsed = isSidebarCollapsed();
-    document.body.classList.toggle(COLLAPSED_CLASS, collapsed);
+    appEl.classList.toggle(COLLAPSED_CLASS, collapsed);
 }
 
 function bindMenuToggle() {
@@ -86,12 +116,28 @@ function bindMenuToggle() {
             // Small screens: sidebar behaves as a slide-in overlay, not a
             // permanent collapse — state isn't persisted, since it should
             // reopen closed on the next page load.
-            document.body.classList.toggle(OVERLAY_OPEN_CLASS);
+            const open = appEl.classList.toggle(OVERLAY_OPEN_CLASS);
+            menuToggleEl.setAttribute('aria-expanded', String(open));
         } else {
-            const collapsed = !document.body.classList.contains(COLLAPSED_CLASS);
-            document.body.classList.toggle(COLLAPSED_CLASS, collapsed);
+            const collapsed = !appEl.classList.contains(COLLAPSED_CLASS);
+            appEl.classList.toggle(COLLAPSED_CLASS, collapsed);
+            menuToggleEl.setAttribute('aria-expanded', String(!collapsed));
             setSidebarCollapsed(collapsed);
         }
+    });
+}
+
+/**
+ * On mobile, tapping a nav link should navigate AND close the overlay so
+ * the destination page isn't hidden behind an open sidebar.
+ */
+function bindNavLinkClose() {
+    qsa('.navigation a', sidebarEl).forEach((link) => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= CONFIG.BREAKPOINTS.tablet) {
+                closeMobileOverlay();
+            }
+        });
     });
 }
 
@@ -101,14 +147,20 @@ function bindMenuToggle() {
  */
 function bindOutsideClickToClose() {
     document.addEventListener('click', (event) => {
-        const isMobileOverlayOpen = document.body.classList.contains(OVERLAY_OPEN_CLASS);
+        const isMobileOverlayOpen = appEl.classList.contains(OVERLAY_OPEN_CLASS);
         if (!isMobileOverlayOpen) return;
 
         const clickedInsideSidebar = sidebarEl.contains(event.target);
         const clickedToggleButton = menuToggleEl?.contains(event.target);
 
         if (!clickedInsideSidebar && !clickedToggleButton) {
-            document.body.classList.remove(OVERLAY_OPEN_CLASS);
+            closeMobileOverlay();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && appEl.classList.contains(OVERLAY_OPEN_CLASS)) {
+            closeMobileOverlay();
         }
     });
 }
@@ -121,10 +173,10 @@ function bindOutsideClickToClose() {
 function watchResponsiveBreakpoint() {
     onBreakpointCross(CONFIG.BREAKPOINTS.tablet, (isBelowTablet) => {
         if (isBelowTablet) {
-            document.body.classList.add(COLLAPSED_CLASS);
+            appEl.classList.remove(COLLAPSED_CLASS);
         } else {
-            document.body.classList.remove(OVERLAY_OPEN_CLASS);
-            document.body.classList.toggle(COLLAPSED_CLASS, isSidebarCollapsed());
+            appEl.classList.remove(OVERLAY_OPEN_CLASS);
+            appEl.classList.toggle(COLLAPSED_CLASS, isSidebarCollapsed());
         }
     });
 }
@@ -134,5 +186,6 @@ function watchResponsiveBreakpoint() {
  * the sidebar overlay after navigating via a link inside it).
  */
 function closeMobileOverlay() {
-    document.body.classList.remove(OVERLAY_OPEN_CLASS);
+    appEl.classList.remove(OVERLAY_OPEN_CLASS);
+    menuToggleEl?.setAttribute('aria-expanded', 'false');
 }

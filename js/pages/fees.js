@@ -171,6 +171,11 @@ function ensurePaymentConfirmModalExists() {
   });
 
   qs('#confirmPayBtn')?.addEventListener('click', handleConfirmPayment);
+  qs('#downloadStatementBtn')?.addEventListener('click', () => {
+    if (typeof showToast === 'function') {
+      showToast('Your statement is being prepared for download.', 'info');
+    }
+  });
 
   const feesGrid = qs('#feeBreakdownList');
   if (feesGrid) {
@@ -215,6 +220,10 @@ function handleConfirmPayment() {
   renderFeeSummary();
   renderFeeBreakdown();
   renderPaymentHistory();
+
+  if (typeof showToast === 'function') {
+    showToast(`Payment of ${formatCurrency(item.amount)} received for ${item.label}.`, 'success');
+  }
 }
 
 /* ---------------------------------------------------------------- */

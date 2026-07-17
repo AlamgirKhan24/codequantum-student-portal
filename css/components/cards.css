@@ -18,52 +18,55 @@
 }
 
 .stat-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px);
     background: var(--glass-bg-hover);
     box-shadow: var(--shadow-lg);
-    border-color: rgba(99, 102, 241, 0.25);
+    border-color: var(--border-color-hover);
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .card-icon {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 18px;
-    font-size: 24px;
-    color: white;
+    border-radius: 14px;
+    font-size: 21px;
 }
 
 .card-icon.students {
-    background: var(--primary-gradient);
+    background: var(--tile-primary-bg);
+    color: var(--tile-primary-fg);
 }
 
 .card-icon.courses {
-    background: var(--secondary-gradient);
+    background: var(--tile-info-bg);
+    color: var(--tile-info-fg);
 }
 
 .card-icon.assignments {
-    background: var(--warning-gradient);
+    background: var(--tile-warning-bg);
+    color: var(--tile-warning-fg);
 }
 
 .card-icon.attendance {
-    background: var(--success-gradient);
+    background: var(--tile-success-bg);
+    color: var(--tile-success-fg);
 }
 
 .card-body h4 {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
@@ -129,28 +132,31 @@
     width: 58px;
     height: 58px;
     min-width: 58px;
-    border-radius: var(--radius-round);
+    border-radius: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--white-color);
     font-size: 21px;
 }
 
 .assignment-stat-card .stat-icon.total {
-    background: var(--primary-gradient);
+    background: var(--tile-primary-bg);
+    color: var(--tile-primary-fg);
 }
 
 .assignment-stat-card .stat-icon.submitted {
-    background: var(--success-gradient);
+    background: var(--tile-success-bg);
+    color: var(--tile-success-fg);
 }
 
 .assignment-stat-card .stat-icon.pending {
-    background: var(--warning-gradient);
+    background: var(--tile-warning-bg);
+    color: var(--tile-warning-fg);
 }
 
 .assignment-stat-card .stat-icon.overdue {
-    background: var(--danger-gradient);
+    background: var(--tile-danger-bg);
+    color: var(--tile-danger-fg);
 }
 
 .assignment-stat-card .stat-content h2 {

@@ -30,7 +30,7 @@
 /* Modal Container */
 
 .modal {
-    background: var(--white-color);
+    background: var(--surface-color);
     border-radius: var(--card-radius);
     box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
     max-width: 500px;

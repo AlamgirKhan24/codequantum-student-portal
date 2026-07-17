@@ -122,15 +122,82 @@ function setNotificationBadge(count) {
     badgeEl.style.display = count > 0 ? '' : 'none';
 }
 
+// Recent notices shown in the header panel. Kept small and static here;
+// the full feed lives on the Notices page. Links resolve for both the
+// dashboard (root) and sub-pages via noticesHref().
+const RECENT_NOTICES = [
+    { icon: 'fa-graduation-cap', tone: 'academic', title: 'Midterm exam schedule published', time: 'Jul 15' },
+    { icon: 'fa-calendar-day', tone: 'events', title: 'CodeQuantum Hackathon — registrations open', time: 'Jul 14' },
+    { icon: 'fa-wallet', tone: 'fees', title: 'Installment 3 due Aug 15', time: 'Jul 12' },
+];
+
+function noticesHref() {
+    // Sub-pages live in /pages/; the dashboard is at the root.
+    return window.location.pathname.includes('/pages/') ? 'notices.html' : './pages/notices.html';
+}
+
 function bindNotifications() {
     if (!notificationsBtnEl) return;
 
-    // Placeholder click behavior until a real notifications panel/dropdown
-    // is designed — dispatches an event other code (or a future
-    // components/notifications-panel.js) can hook into.
-    notificationsBtnEl.addEventListener('click', () => {
-        document.dispatchEvent(new CustomEvent('cq:notifications-toggle'));
+    const panel = buildNotificationsPanel();
+    notificationsBtnEl.setAttribute('aria-haspopup', 'true');
+    notificationsBtnEl.setAttribute('aria-expanded', 'false');
+
+    notificationsBtnEl.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const open = panel.classList.toggle('open');
+        notificationsBtnEl.setAttribute('aria-expanded', String(open));
+        if (open && profileEl) profileEl.classList.remove(PROFILE_OPEN_CLASS);
+        document.dispatchEvent(new CustomEvent('cq:notifications-toggle', { detail: { open } }));
     });
+
+    document.addEventListener('click', (event) => {
+        if (panel.classList.contains('open') && !panel.contains(event.target) && !notificationsBtnEl.contains(event.target)) {
+            panel.classList.remove('open');
+            notificationsBtnEl.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && panel.classList.contains('open')) {
+            panel.classList.remove('open');
+            notificationsBtnEl.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+function buildNotificationsPanel() {
+    const existing = qs('.notifications-panel');
+    if (existing) return existing;
+
+    const panel = document.createElement('div');
+    panel.className = 'notifications-panel';
+    panel.setAttribute('role', 'menu');
+
+    const items = RECENT_NOTICES.map((n) => `
+        <a class="notif-item" href="${noticesHref()}" role="menuitem">
+            <span class="notif-item-icon ${n.tone}"><i class="fa-solid ${n.icon}"></i></span>
+            <span class="notif-item-body">
+                <span class="notif-item-title">${n.title}</span>
+                <span class="notif-item-time">${n.time}</span>
+            </span>
+        </a>`).join('');
+
+    panel.innerHTML = `
+        <div class="notif-head">
+            <h4>Notifications</h4>
+            <span class="notif-count">${RECENT_NOTICES.length} new</span>
+        </div>
+        <div class="notif-list">${items}</div>
+        <a class="notif-footer" href="${noticesHref()}">View all notices</a>`;
+
+    // Anchor the panel to the bell's positioned parent (.header-right).
+    const anchor = notificationsBtnEl.parentElement || document.body;
+    if (getComputedStyle(anchor).position === 'static') {
+        anchor.style.position = 'relative';
+    }
+    anchor.appendChild(panel);
+    return panel;
 }
 
 // ---------------------------------------------------------------
@@ -138,23 +205,106 @@ function bindNotifications() {
 // ---------------------------------------------------------------
 
 /**
- * NOTE: the current header HTML only has the clickable .profile block
- * (avatar + name + chevron) — there's no dropdown menu markup yet. This
- * just toggles a class for now; the actual dropdown panel (Logout link,
- * "View Profile", etc.) needs adding to each page's HTML once the design
- * is ready, then this function's job is already done.
+ * Injects the dropdown menu markup into the existing .profile block and
+ * wires open/close + logout. The menu isn't in the page HTML — it's built
+ * here so all 10 pages stay in sync from one place.
  */
 function bindProfileDropdown() {
     if (!profileEl) return;
 
+    buildProfileMenu();
+    profileEl.setAttribute('role', 'button');
+    profileEl.setAttribute('tabindex', '0');
+    profileEl.setAttribute('aria-haspopup', 'true');
+    profileEl.setAttribute('aria-expanded', 'false');
+
+    const toggle = () => {
+        const open = profileEl.classList.toggle(PROFILE_OPEN_CLASS);
+        profileEl.setAttribute('aria-expanded', String(open));
+    };
+
     profileEl.addEventListener('click', (event) => {
+        if (event.target.closest('.profile-menu')) return; // let menu links work
         event.stopPropagation();
-        profileEl.classList.toggle(PROFILE_OPEN_CLASS);
+        toggle();
+    });
+
+    profileEl.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            if (event.target.closest('.profile-menu')) return;
+            event.preventDefault();
+            toggle();
+        }
     });
 
     document.addEventListener('click', (event) => {
         if (profileEl.classList.contains(PROFILE_OPEN_CLASS) && !profileEl.contains(event.target)) {
             profileEl.classList.remove(PROFILE_OPEN_CLASS);
+            profileEl.setAttribute('aria-expanded', 'false');
         }
     });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && profileEl.classList.contains(PROFILE_OPEN_CLASS)) {
+            profileEl.classList.remove(PROFILE_OPEN_CLASS);
+            profileEl.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+function pagesHref(file) {
+    return window.location.pathname.includes('/pages/') ? file : `./pages/${file}`;
+}
+
+function indexHref() {
+    return window.location.pathname.includes('/pages/') ? '../index.html' : './index.html';
+}
+
+function buildProfileMenu() {
+    if (profileEl.querySelector('.profile-menu')) return;
+
+    const profile = getUserProfile() || {};
+    const name = profile.name || 'Alex Johnson';
+    const email = profile.email || 'alex.johnson@codequantum.edu';
+
+    const menu = document.createElement('div');
+    menu.className = 'profile-menu';
+    menu.setAttribute('role', 'menu');
+    menu.innerHTML = `
+        <div class="profile-menu-head">
+            <span class="profile-menu-name"></span>
+            <span class="profile-menu-email"></span>
+        </div>
+        <a class="profile-menu-item" role="menuitem" href="${pagesHref('profile.html')}">
+            <i class="fa-solid fa-user" aria-hidden="true"></i> View profile
+        </a>
+        <a class="profile-menu-item" role="menuitem" href="${pagesHref('settings.html')}">
+            <i class="fa-solid fa-gear" aria-hidden="true"></i> Settings
+        </a>
+        <button type="button" class="profile-menu-item profile-menu-logout" role="menuitem">
+            <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Log out
+        </button>`;
+    menu.querySelector('.profile-menu-name').textContent = name;
+    menu.querySelector('.profile-menu-email').textContent = email;
+
+    menu.querySelector('.profile-menu-logout').addEventListener('click', (event) => {
+        event.stopPropagation();
+        logout();
+    });
+
+    profileEl.appendChild(menu);
+}
+
+function logout() {
+    try {
+        clearAppStorage();
+    } catch (err) {
+        console.warn('[navbar] clearAppStorage failed:', err);
+    }
+    if (typeof showToast === 'function') {
+        showToast('Signed out. Redirecting…', 'info', { duration: 1200 });
+    }
+    setTimeout(() => {
+        window.location.href = indexHref();
+    }, 700);
 }

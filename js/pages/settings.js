@@ -27,7 +27,7 @@ function initSettingsPage() {
 /* ---------------------------------------------------------------- */
 
 function getProfile() {
-    return getFromStorage(CONFIG.STORAGE_KEYS.profile) || {
+    return getItem(CONFIG.STORAGE_KEYS.userProfile) || {
         name: '',
         email: '',
         phone: '',
@@ -35,7 +35,7 @@ function getProfile() {
 }
 
 function saveProfile(profile) {
-    saveToStorage(CONFIG.STORAGE_KEYS.profile, profile);
+    setItem(CONFIG.STORAGE_KEYS.userProfile, profile);
 }
 
 function renderProfileForm() {
@@ -84,6 +84,7 @@ function wireProfileForm() {
 
         saveProfile({ name, email, phone });
         showFormStatus('#profileFormStatus', 'Profile updated.');
+        if (typeof showToast === 'function') showToast('Profile updated.', 'success');
     });
 }
 
@@ -174,6 +175,7 @@ function ensureConfirmModalExists() {
         qs('#confirmPassword').value = '';
         closeModal('confirmPasswordChangeModal');
         showFormStatus('#passwordFormStatus', 'Password updated.');
+        if (typeof showToast === 'function') showToast('Password updated.', 'success');
     });     
 }
 

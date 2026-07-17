@@ -302,6 +302,10 @@ function handleSaveAssignment() {
 
   closeModal('assignmentFormModal');
   renderAssignments();
+
+  if (typeof showToast === 'function') {
+    showToast(existingIndex !== -1 ? `“${title}” updated.` : `“${title}” added.`, 'success');
+  }
 }
 
 function setFieldError(fieldId, message) {
