@@ -51,7 +51,7 @@
         padding: 20px;
     }
     .card-body h2 {
-        font-size: 2.2rem;
+        font-size: 1.9rem;
     }
     .progress-grid {
         grid-template-columns: 1fr;
@@ -144,7 +144,7 @@
         padding: 20px;
     }
     .card-body h2 {
-        font-size: 2.2rem;
+        font-size: 1.9rem;
     }
     .progress-grid {
         grid-template-columns: 1fr;
@@ -282,7 +282,7 @@
         padding: 20px;
     }
     .card-body h2 {
-        font-size: 2.2rem;
+        font-size: 1.9rem;
     }
     .progress-grid {
         grid-template-columns: 1fr;
