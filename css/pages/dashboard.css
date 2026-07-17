@@ -143,37 +143,71 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 6px;
 }
 
 .activity-list li {
     display: flex;
-    align-items: flex-start;
-    gap: 18px;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.activity-list li:hover {
+    background: var(--surface-muted);
+    transform: translateX(4px);
 }
 
 .activity-list li i {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    background: var(--surface-hover);
-    color: #6366f1;
+    border-radius: 13px;
+    background: var(--tile-primary-bg);
+    color: var(--tile-primary-fg);
     font-size: 18px;
     flex-shrink: 0;
 }
 
+/* Per-type icon tones so each activity reads at a glance — first item is a
+   completed submission (success), then a new course (info), then a finished
+   quiz/award (warning). */
+.activity-list li:nth-child(1) i {
+    background: var(--tile-success-bg);
+    color: var(--tile-success-fg);
+}
+
+.activity-list li:nth-child(2) i {
+    background: var(--tile-info-bg);
+    color: var(--tile-info-fg);
+}
+
+.activity-list li:nth-child(3) i {
+    background: var(--tile-warning-bg);
+    color: var(--tile-warning-fg);
+}
+
+.activity-list li > div {
+    min-width: 0;
+    flex: 1;
+}
+
 .activity-list h4 {
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: var(--fw-semibold);
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+    line-height: 1.35;
 }
 
 .activity-list p {
-    color: var(--text-secondary);
-    font-size: 14px;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: var(--fw-medium);
 }
 
 .schedule-item {
