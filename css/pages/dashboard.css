@@ -5,10 +5,37 @@
     gap: 32px;
 }
 
+/* Welcome hero — a calm gradient banner that frames the greeting and the
+   day at a glance, in step with the refreshed sidebar/header palette. */
 .welcome-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-lg);
+    padding: 30px 34px;
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(120% 140% at 100% 0%, rgba(139, 92, 246, .16), transparent 55%),
+        radial-gradient(120% 140% at 0% 100%, rgba(99, 102, 241, .14), transparent 55%),
+        var(--surface-color);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.welcome-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 12.5px;
+    font-weight: var(--fw-semibold);
+    letter-spacing: .3px;
 }
 
 .welcome-text h2 {
@@ -16,17 +43,63 @@
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 10px;
+    line-height: 1.15;
 }
 
 .welcome-text p {
     color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.6;
+    max-width: 46ch;
 }
 
 .welcome-text span {
-    color: #6366f1;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
+}
+
+/* Date chip on the right — a compact "at a glance" tile. */
+.welcome-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    padding: 14px 20px;
+    border-radius: 16px;
+    background: var(--surface-muted);
+    border: 1px solid var(--border-color);
+}
+
+.welcome-meta i {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 18px;
+    background: var(--tile-primary-bg);
+    color: var(--tile-primary-fg);
+    flex-shrink: 0;
+}
+
+.welcome-meta small {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 2px;
+}
+
+.welcome-meta strong {
+    font-size: 15px;
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+    white-space: nowrap;
 }
 
 .stats-grid {
