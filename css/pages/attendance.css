@@ -421,3 +421,10 @@ attendance-page {
     color: var(--text-light);
     font-weight: 600;
 }
+/* Search empty-state row */
+.attendance-empty-cell {
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+}

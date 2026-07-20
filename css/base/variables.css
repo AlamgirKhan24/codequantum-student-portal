@@ -1,18 +1,63 @@
 :root {
-    --primary-color: #4F46E5;
-    --secondary-color: #06B6D4;
-    --success-color: #22C55E;
+    /* ==========================
+       COLORS
+       Brand anchor = indigo→violet. Semantic hues (blue/amber/emerald/
+       rose) are used only where they carry meaning, and mostly as soft
+       tinted surfaces rather than loud gradients.
+    ========================== */
+    --primary-color: #6366F1;
+    --primary-hover: #4F46E5;
+    --primary-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    --secondary-color: #0EA5E9;
+    --secondary-gradient: linear-gradient(135deg, #0EA5E9 0%, #22D3EE 100%);
+    --success-color: #10B981;
+    --success-gradient: linear-gradient(135deg, #10B981 0%, #34D399 100%);
     --warning-color: #F59E0B;
-    --danger-color: #EF4444;
+    --warning-gradient: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+    --danger-color: #F43F5E;
+    --danger-gradient: linear-gradient(135deg, #F43F5E 0%, #FB7185 100%);
+
+    --primary-light: rgba(99, 102, 241, 0.10);
+    --secondary-light: rgba(14, 165, 233, 0.10);
+    --success-light: rgba(16, 185, 129, 0.10);
+    --warning-light: rgba(245, 158, 11, 0.10);
+    --danger-light: rgba(244, 63, 94, 0.10);
+
+    /* Soft-tint icon tiles — calm colored surface + saturated glyph.
+       These replace the old full-saturation gradient tiles. */
+    --tile-primary-bg: rgba(99, 102, 241, 0.12);
+    --tile-primary-fg: #6366F1;
+    --tile-info-bg: rgba(14, 165, 233, 0.12);
+    --tile-info-fg: #0EA5E9;
+    --tile-warning-bg: rgba(245, 158, 11, 0.14);
+    --tile-warning-fg: #D97706;
+    --tile-success-bg: rgba(16, 185, 129, 0.12);
+    --tile-success-fg: #059669;
+    --tile-danger-bg: rgba(244, 63, 94, 0.12);
+    --tile-danger-fg: #E11D48;
+
     --white-color: #FFFFFF;
-    --background-color: #F8FAFC;
-    --sidebar-color: #1E293B;
+    --background-color: #F6F7FB;
+    --surface-color: #FFFFFF;
+    --surface-muted: #F6F7FB;
+    --surface-hover: #F1F2FA;
+    --sidebar-color: #0B1020;
+    --border-color: #EAECF2;
+    --border-color-hover: #D5D9E3;
+
     --text-primary: #0F172A;
-    --text-secondary: #64748B;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-bg-hover: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.6);
+
     /* ==========================
        TYPOGRAPHY
     ========================== */
-    --font-family-primary: "Poppins", sans-serif;
+    --font-family-primary: "Inter", sans-serif;
+    --font-family-headings: "Plus Jakarta Sans", sans-serif;
     --fs-xs: 12px;
     --fs-sm: 14px;
     --fs-md: 16px;
@@ -20,6 +65,7 @@
     --fs-xl: 24px;
     --fs-2xl: 32px;
     --fs-3xl: 48px;
+
     /* ==========================
        FONT WEIGHT
     ========================== */
@@ -28,6 +74,8 @@
     --fw-medium: 500;
     --fw-semibold: 600;
     --fw-bold: 700;
+    --fw-extrabold: 800;
+
     /* ==========================
        SPACING
     ========================== */
@@ -39,6 +87,7 @@
     --space-2xl: 48px;
     --space-3xl: 64px;
     --space-4xl: 80px;
+
     /* ==========================
        BORDER RADIUS
     ========================== */
@@ -47,18 +96,22 @@
     --radius-lg: 16px;
     --radius-xl: 24px;
     --radius-round: 50%;
+
     /* ==========================
        SHADOWS
     ========================== */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, .08);
-    --shadow-md: 0 6px 12px rgba(0, 0, 0, .12);
-    --shadow-lg: 0 12px 24px rgba(0, 0, 0, .16);
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+    --shadow-md: 0 4px 12px -2px rgba(16, 24, 40, 0.06), 0 2px 6px -2px rgba(16, 24, 40, 0.04);
+    --shadow-lg: 0 12px 28px -8px rgba(16, 24, 40, 0.12), 0 6px 12px -6px rgba(16, 24, 40, 0.06);
+    --shadow-glow: 0 6px 20px -4px rgba(99, 102, 241, 0.35);
+
     /* ==========================
        TRANSITIONS
     ========================== */
-    --transition-fast: .2s ease;
-    --transition-normal: .3s ease;
-    --transition-slow: .5s ease;
+    --transition-fast: .2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: .3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: .5s cubic-bezier(0.4, 0, 0.2, 1);
+
     /* ==========================
        Z-INDEX
     ========================== */
@@ -67,16 +120,78 @@
     --z-fixed: 300;
     --z-modal: 400;
     --z-tooltip: 500;
+
     /* ==========================
        LAYOUT
     ========================== */
     --sidebar-width: 250px;
     --header-height: 80px;
     --container-width: 1400px;
+
     /* ==========================
        COMPONENT SIZES
     ========================== */
     --button-height: 48px;
     --input-height: 48px;
     --card-radius: 16px;
+}
+
+/* ==========================
+   DARK THEME
+========================== */
+[data-theme="dark"] {
+    --background-color: #0B1120;
+    --surface-color: #131C31;
+    --surface-muted: #1B2540;
+    --surface-hover: #24304F;
+    --sidebar-color: #070B14;
+    --border-color: #26324B;
+    --border-color-hover: #3A4A6B;
+
+    --text-primary: #F1F5F9;
+    --text-secondary: #B4C0D3;
+    --text-muted: #8595AD;
+
+    --glass-bg: rgba(24, 33, 56, 0.72);
+    --glass-bg-hover: rgba(30, 41, 68, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    --primary-light: rgba(99, 102, 241, 0.16);
+    --secondary-light: rgba(14, 165, 233, 0.16);
+    --success-light: rgba(16, 185, 129, 0.16);
+    --warning-light: rgba(245, 158, 11, 0.16);
+    --danger-light: rgba(244, 63, 94, 0.16);
+
+    /* Brighter glyphs read better on dark tinted tiles */
+    --tile-primary-bg: rgba(129, 140, 248, 0.18);
+    --tile-primary-fg: #A5B4FC;
+    --tile-info-bg: rgba(56, 189, 248, 0.16);
+    --tile-info-fg: #7DD3FC;
+    --tile-warning-bg: rgba(251, 191, 36, 0.16);
+    --tile-warning-fg: #FCD34D;
+    --tile-success-bg: rgba(52, 211, 153, 0.16);
+    --tile-success-fg: #6EE7B7;
+    --tile-danger-bg: rgba(251, 113, 133, 0.16);
+    --tile-danger-fg: #FDA4AF;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.45), 0 8px 16px -6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.55), 0 15px 25px -20px rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth transition when toggling themes */
+body,
+.stat-card,
+.activity-card,
+.schedule-card,
+.progress-section,
+.assignments-section,
+.course-progress,
+.schedule-item,
+.assignment-card,
+.header,
+.action-card {
+    transition: background-color var(--transition-normal),
+                border-color var(--transition-normal),
+                color var(--transition-normal);
 }

@@ -5,9 +5,6 @@
  * validators.js (form validation). Mostly: timing control, DOM
  * shortcuts, and small data-shaping helpers used across components/pages.
  */
-
-import CONFIG from '../config/config.js';
-
 // ---------------------------------------------------------------
 // Timing control
 // ---------------------------------------------------------------
@@ -19,7 +16,7 @@ import CONFIG from '../config/config.js';
  * @param {number} wait
  * @returns {Function}
  */
-export function debounce(fn, wait = 300) {
+function debounce(fn, wait = 300) {
     let timeoutId;
     return function debounced(...args) {
         clearTimeout(timeoutId);
@@ -35,7 +32,7 @@ export function debounce(fn, wait = 300) {
  * @param {number} wait
  * @returns {Function}
  */
-export function throttle(fn, wait = 200) {
+function throttle(fn, wait = 200) {
     let isWaiting = false;
     let pendingArgs = null;
 
@@ -63,7 +60,7 @@ export function throttle(fn, wait = 200) {
  * @param {number} ms
  * @returns {Promise<void>}
  */
-export function sleep(ms) {
+function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
@@ -77,7 +74,7 @@ export function sleep(ms) {
  * @param {ParentNode} [scope=document]
  * @returns {Element|null}
  */
-export function qs(selector, scope = document) {
+function qs(selector, scope = document) {
     return scope.querySelector(selector);
 }
 
@@ -88,7 +85,7 @@ export function qs(selector, scope = document) {
  * @param {ParentNode} [scope=document]
  * @returns {Element[]}
  */
-export function qsa(selector, scope = document) {
+function qsa(selector, scope = document) {
     return Array.from(scope.querySelectorAll(selector));
 }
 
@@ -101,7 +98,7 @@ export function qsa(selector, scope = document) {
  * @param {string} selector
  * @param {(event: Event, matchedEl: Element) => void} handler
  */
-export function delegate(parent, eventType, selector, handler) {
+function delegate(parent, eventType, selector, handler) {
     parent.addEventListener(eventType, (event) => {
         const matchedEl = event.target.closest(selector);
         if (matchedEl && parent.contains(matchedEl)) {
@@ -119,7 +116,7 @@ export function delegate(parent, eventType, selector, handler) {
  * @param {...(string|false|null|undefined)} args
  * @returns {string}
  */
-export function classNames(...args) {
+function classNames(...args) {
     return args.filter(Boolean).join(' ');
 }
 
@@ -131,21 +128,21 @@ export function classNames(...args) {
 /**
  * @returns {boolean} true if viewport is at or below the tablet breakpoint
  */
-export function isTabletOrBelow() {
+function isTabletOrBelow() {
     return window.innerWidth <= CONFIG.BREAKPOINTS.tablet;
 }
 
 /**
  * @returns {boolean} true if viewport is at or below the small-device breakpoint
  */
-export function isSmallDeviceOrBelow() {
+function isSmallDeviceOrBelow() {
     return window.innerWidth <= CONFIG.BREAKPOINTS.smallDevice;
 }
 
 /**
  * @returns {boolean} true if viewport is at or below the mobile breakpoint
  */
-export function isMobile() {
+function isMobile() {
     return window.innerWidth <= CONFIG.BREAKPOINTS.mobile;
 }
 
@@ -156,7 +153,7 @@ export function isMobile() {
  * @param {number} breakpoint - a pixel width, typically from CONFIG.BREAKPOINTS
  * @param {(matches: boolean) => void} callback
  */
-export function onBreakpointCross(breakpoint, callback) {
+function onBreakpointCross(breakpoint, callback) {
     const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
     callback(mql.matches);
     mql.addEventListener('change', (event) => callback(event.matches));
@@ -173,10 +170,10 @@ export function onBreakpointCross(breakpoint, callback) {
  * @param {string} key
  * @returns {Object<string, Array<Object>>}
  */
-export function groupBy(arr, key) {
+function groupBy(arr, key) {
     return arr.reduce((groups, item) => {
         const groupKey = item[key];
-        (groups[groupKey] ? ? = []).push(item);
+        (groups[groupKey] ??= []).push(item);
         return groups;
     }, {});
 }
@@ -188,7 +185,7 @@ export function groupBy(arr, key) {
  * @param {string} key
  * @returns {number}
  */
-export function sumBy(arr, key) {
+function sumBy(arr, key) {
     return arr.reduce((total, item) => total + (Number(item[key]) || 0), 0);
 }
 
@@ -200,7 +197,7 @@ export function sumBy(arr, key) {
  * @param {number} max
  * @returns {number}
  */
-export function clamp(value, min, max) {
+function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
 }
 
@@ -211,7 +208,7 @@ export function clamp(value, min, max) {
  * @param {*} value
  * @returns {*}
  */
-export function deepClone(value) {
+function deepClone(value) {
     return JSON.parse(JSON.stringify(value));
 }
 
@@ -221,6 +218,6 @@ export function deepClone(value) {
  * a permanent ID.
  * @returns {string}
  */
-export function generateId() {
+function generateId() {
     return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 }

@@ -6,9 +6,6 @@
  * everything through here so a locale/currency change is a one-line
  * edit in config.js instead of a find-and-replace across every page.
  */
-
-import CONFIG from '../config/config.js';
-
 // ---------------------------------------------------------------
 // Currency
 // ---------------------------------------------------------------
@@ -21,7 +18,7 @@ import CONFIG from '../config/config.js';
  * @param {{ decimals?: number }} [options]
  * @returns {string}
  */
-export function formatCurrency(amount, { decimals = 2 } = {}) {
+function formatCurrency(amount, { decimals = 2 } = {}) {
     if (typeof amount !== 'number' || Number.isNaN(amount)) return '—';
 
     return new Intl.NumberFormat(CONFIG.FORMAT.locale, {
@@ -38,7 +35,7 @@ export function formatCurrency(amount, { decimals = 2 } = {}) {
  * @param {number} value
  * @returns {string}
  */
-export function formatNumber(value) {
+function formatNumber(value) {
     if (typeof value !== 'number' || Number.isNaN(value)) return '—';
     return new Intl.NumberFormat(CONFIG.FORMAT.locale).format(value);
 }
@@ -51,7 +48,7 @@ export function formatNumber(value) {
  * @param {{ isFraction?: boolean, decimals?: number }} [options]
  * @returns {string}
  */
-export function formatPercent(value, { isFraction = false, decimals = 0 } = {}) {
+function formatPercent(value, { isFraction = false, decimals = 0 } = {}) {
     if (typeof value !== 'number' || Number.isNaN(value)) return '—';
     const pct = isFraction ? value * 100 : value;
     return `${pct.toFixed(decimals)}%`;
@@ -67,7 +64,7 @@ export function formatPercent(value, { isFraction = false, decimals = 0 } = {}) 
  * @param {Date|string|number} date
  * @returns {string}
  */
-export function formatDate(date) {
+function formatDate(date) {
     const d = toDate(date);
     if (!d) return '—';
     return new Intl.DateTimeFormat(CONFIG.FORMAT.locale, {
@@ -81,7 +78,7 @@ export function formatDate(date) {
  * @param {Date|string|number} date
  * @returns {string}
  */
-export function formatTime(date) {
+function formatTime(date) {
     const d = toDate(date);
     if (!d) return '—';
     return new Intl.DateTimeFormat(CONFIG.FORMAT.locale, {
@@ -95,7 +92,7 @@ export function formatTime(date) {
  * @param {Date|string|number} date
  * @returns {string}
  */
-export function formatDateTime(date) {
+function formatDateTime(date) {
     const d = toDate(date);
     if (!d) return '—';
     return new Intl.DateTimeFormat(CONFIG.FORMAT.locale, {
@@ -114,7 +111,7 @@ export function formatDateTime(date) {
  * @param {Date|string|number} date
  * @returns {string}
  */
-export function relativeDayLabel(date) {
+function relativeDayLabel(date) {
     const d = toDate(date);
     if (!d) return '—';
 
@@ -151,7 +148,7 @@ function toDate(input) {
  * @param {string} str
  * @returns {string}
  */
-export function capitalize(str) {
+function capitalize(str) {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -163,7 +160,7 @@ export function capitalize(str) {
  * @param {number} maxLength
  * @returns {string}
  */
-export function truncate(str, maxLength = 40) {
+function truncate(str, maxLength = 40) {
     if (!str || str.length <= maxLength) return str || '';
     const sliced = str.slice(0, maxLength);
     const lastSpace = sliced.lastIndexOf(' ');
@@ -178,7 +175,7 @@ export function truncate(str, maxLength = 40) {
  * @param {number} [maxLetters=2]
  * @returns {string}
  */
-export function initials(fullName, maxLetters = 2) {
+function initials(fullName, maxLetters = 2) {
     if (!fullName) return '';
     return fullName
         .trim()

@@ -23,7 +23,7 @@ const fail = (message) => ({ valid: false, message });
  * @param {*} value
  * @param {string} [fieldName='This field']
  */
-export function isRequired(value, fieldName = 'This field') {
+function isRequired(value, fieldName = 'This field') {
     const isEmpty =
         value === null ||
         value === undefined ||
@@ -36,7 +36,7 @@ export function isRequired(value, fieldName = 'This field') {
  * (those are famously overkill), just enough to catch obvious typos.
  * @param {string} value
  */
-export function isEmail(value) {
+function isEmail(value) {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return pattern.test(String(value).trim()) ?
         ok() :
@@ -49,7 +49,7 @@ export function isEmail(value) {
  * real-world phone formatting varies a lot by country.
  * @param {string} value
  */
-export function isPhone(value) {
+function isPhone(value) {
     const pattern = /^\+?[0-9\s\-()]{7,20}$/;
     return pattern.test(String(value).trim()) ?
         ok() :
@@ -61,8 +61,8 @@ export function isPhone(value) {
  * @param {number} min
  * @param {string} [fieldName='This field']
  */
-export function minLength(value, min, fieldName = 'This field') {
-    return String(value ? ? '').length >= min ?
+function minLength(value, min, fieldName = 'This field') {
+    return String(value ?? '').length >= min ?
         ok() :
         fail(`${fieldName} must be at least ${min} characters.`);
 }
@@ -72,8 +72,8 @@ export function minLength(value, min, fieldName = 'This field') {
  * @param {number} max
  * @param {string} [fieldName='This field']
  */
-export function maxLength(value, max, fieldName = 'This field') {
-    return String(value ? ? '').length <= max ?
+function maxLength(value, max, fieldName = 'This field') {
+    return String(value ?? '').length <= max ?
         ok() :
         fail(`${fieldName} must be ${max} characters or fewer.`);
 }
@@ -83,7 +83,7 @@ export function maxLength(value, max, fieldName = 'This field') {
  * @param {*} value
  * @param {string} [fieldName='This field']
  */
-export function isNumeric(value, fieldName = 'This field') {
+function isNumeric(value, fieldName = 'This field') {
     return value !== '' && value !== null && Number.isFinite(Number(value)) ?
         ok() :
         fail(`${fieldName} must be a number.`);
@@ -95,7 +95,7 @@ export function isNumeric(value, fieldName = 'This field') {
  * @param {number} max
  * @param {string} [fieldName='Value']
  */
-export function isInRange(value, min, max, fieldName = 'Value') {
+function isInRange(value, min, max, fieldName = 'Value') {
     const num = Number(value);
     return num >= min && num <= max ?
         ok() :
@@ -109,7 +109,7 @@ export function isInRange(value, min, max, fieldName = 'Value') {
 /**
  * @param {string|Date} value
  */
-export function isValidDate(value) {
+function isValidDate(value) {
     const d = value instanceof Date ? value : new Date(value);
     return !Number.isNaN(d.getTime()) ? ok() : fail('Enter a valid date.');
 }
@@ -119,7 +119,7 @@ export function isValidDate(value) {
  * or exam date field shouldn't accept the past).
  * @param {string|Date} value
  */
-export function isFutureDate(value) {
+function isFutureDate(value) {
     const dateCheck = isValidDate(value);
     if (!dateCheck.valid) return dateCheck;
 
@@ -142,8 +142,8 @@ export function isFutureDate(value) {
  * people toward weaker, more predictable passwords ("Password1!").
  * @param {string} value
  */
-export function isStrongPassword(value) {
-    const str = String(value ? ? '');
+function isStrongPassword(value) {
+    const str = String(value ?? '');
     if (str.length < 8) return fail('Password must be at least 8 characters.');
     if (!/[a-zA-Z]/.test(str)) return fail('Password must include at least one letter.');
     if (!/[0-9]/.test(str)) return fail('Password must include at least one number.');
@@ -154,7 +154,7 @@ export function isStrongPassword(value) {
  * @param {string} password
  * @param {string} confirmPassword
  */
-export function passwordsMatch(password, confirmPassword) {
+function passwordsMatch(password, confirmPassword) {
     return password === confirmPassword ?
         ok() :
         fail('Passwords do not match.');
@@ -168,7 +168,7 @@ export function passwordsMatch(password, confirmPassword) {
  * @param {File} file
  * @param {string[]} allowedTypes - MIME types, e.g. ['image/png', 'image/jpeg']
  */
-export function isValidFileType(file, allowedTypes) {
+function isValidFileType(file, allowedTypes) {
     if (!file) return fail('No file selected.');
     return allowedTypes.includes(file.type) ?
         ok() :
@@ -179,7 +179,7 @@ export function isValidFileType(file, allowedTypes) {
  * @param {File} file
  * @param {number} maxSizeMb
  */
-export function isValidFileSize(file, maxSizeMb) {
+function isValidFileSize(file, maxSizeMb) {
     if (!file) return fail('No file selected.');
     const maxBytes = maxSizeMb * 1024 * 1024;
     return file.size <= maxBytes ?
@@ -203,7 +203,7 @@ export function isValidFileSize(file, maxSizeMb) {
  *
  * @param {Array<() => {valid: boolean, message: string}>} validatorFns
  */
-export function composeValidators(validatorFns) {
+function composeValidators(validatorFns) {
     for (const fn of validatorFns) {
         const result = fn();
         if (!result.valid) return result;
