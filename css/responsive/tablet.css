@@ -11,9 +11,13 @@
         transition: transform var(--transition-normal);
         z-index: var(--z-modal);
     }
-    .app.sidebar-collapsed .sidebar {
+    .app.sidebar-open .sidebar {
         transform: translateX(0);
         box-shadow: var(--shadow-lg);
+    }
+    .app.sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        visibility: visible;
     }
     .main-content {
         margin-left: 0;
@@ -64,7 +68,7 @@
         transition: transform var(--transition-normal);
         z-index: var(--z-modal);
     }
-    .app.sidebar-collapsed .sidebar {
+    .app.sidebar-open .sidebar {
         transform: translateX(0);
         box-shadow: var(--shadow-lg);
     }
@@ -136,7 +140,7 @@
         transition: transform var(--transition-normal);
         z-index: var(--z-modal);
     }
-    .app.sidebar-collapsed .sidebar {
+    .app.sidebar-open .sidebar {
         transform: translateX(0);
         box-shadow: var(--shadow-lg);
     }

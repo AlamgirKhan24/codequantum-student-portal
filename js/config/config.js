@@ -126,5 +126,3 @@ Object.values(CONFIG).forEach((section) => {
         Object.freeze(section);
     }
 });
-
-export default CONFIG;

@@ -1,7 +1,5 @@
 /* Typography */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
 /* Body Text */
 
 body {
@@ -9,36 +7,51 @@ body {
     font-size: var(--fs-md);
     font-weight: var(--fw-regular);
     color: var(--text-primary);
-    background: var(--background-color);
-    line-height: 1.6;
+    background: radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(14, 165, 233, 0.04) 0%, transparent 40%),
+                var(--background-color);
+    background-attachment: fixed;
+    line-height: 1.625;
 }
 
 
 /* Headings */
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+    color: var(--text-primary);
+}
+
 h1 {
     font-size: var(--fs-3xl);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-extrabold);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
 }
 
 h2 {
     font-size: var(--fs-2xl);
-    font-weight: var(--fw-semibold);
+    font-weight: var(--fw-bold);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 h3 {
     font-size: var(--fs-xl);
     font-weight: var(--fw-semibold);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
 }
 
 h4 {
     font-size: var(--fs-lg);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.005em;
 }
 
 h5 {
     font-size: var(--fs-md);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-semibold);
 }
 
 h6 {
@@ -52,6 +65,7 @@ h6 {
 p {
     color: var(--text-secondary);
     margin-bottom: var(--space-md);
+    line-height: 1.625;
 }
 
 

@@ -13,11 +13,24 @@
 document.addEventListener('DOMContentLoaded', initDashboard);
 
 function initDashboard() {
+    renderWelcomeDate();
     renderSummaryCards();
     renderUpcomingAssignments();
     renderRecentNotices();
     renderTodayTimetable();
     wireSearch();
+}
+
+/**
+ * Fills the hero's date chip with today's date, e.g. "Wed, Jul 17". Falls back
+ * silently if the element isn't present (other pages reuse this script's peers).
+ */
+function renderWelcomeDate() {
+    const el = qs('#welcomeDate');
+    if (!el) return;
+    el.textContent = new Date().toLocaleDateString(undefined, {
+        weekday: 'short', month: 'short', day: 'numeric',
+    });
 }
 
 /**

@@ -1,0 +1,209 @@
+/* ===========================================================
+   Icon Tiles — shared polish + hover
+   -----------------------------------------------------------
+   Every colored icon "tile" across the app (dashboard stats,
+   activity feeds, page headers, cards) shares the same soft-tint
+   token surfaces. This file gives them a common professional
+   finish — subtle depth via an inner highlight ring and a soft
+   drop shadow — plus a lively hover that lifts, scales, and gives
+   the glyph a gentle tilt. Hover is triggered from the parent
+   card so the whole tile reacts as the user browses.
+   =========================================================== */
+
+.card-icon,
+.stat-icon,
+.activity-icon,
+.attendance-icon,
+.award-icon,
+.fees-icon,
+.notice-icon,
+.present-icon,
+.report-icon,
+.result-icon,
+.settings-card-icon,
+.streak-icon,
+.subject-icon,
+.timetable-icon,
+.activity-list li i,
+.assignment-left i,
+.action-card i,
+.streak-box i,
+.deadline-box i,
+.installment-box i {
+    position: relative;
+    isolation: isolate;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+        var(--shadow-sm);
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        filter var(--transition-normal);
+    will-change: transform;
+}
+
+/* Glossy top highlight for a bit of dimensionality. */
+.card-icon::after,
+.stat-icon::after,
+.activity-icon::after,
+.attendance-icon::after,
+.award-icon::after,
+.fees-icon::after,
+.notice-icon::after,
+.present-icon::after,
+.report-icon::after,
+.result-icon::after,
+.settings-card-icon::after,
+.streak-icon::after,
+.subject-icon::after,
+.timetable-icon::after,
+.activity-list li i::after,
+.assignment-left i::after,
+.action-card i::after,
+.streak-box i::after,
+.deadline-box i::after,
+.installment-box i::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0) 55%
+    );
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity var(--transition-normal);
+}
+
+/* Lively hover: the tile lifts, scales and gains a soft glow while
+   the glyph inside gives a subtle tilt. Driven from the parent card
+   so the whole tile animates as the user hovers the card, and also
+   on direct hover for standalone tiles. */
+.card:hover .card-icon,
+.stat-card:hover .stat-icon,
+.assignment-stat-card:hover .stat-icon,
+.course-stat-card:hover .stat-icon,
+.profile-stat-card:hover .stat-icon,
+.activity-card:hover .activity-icon,
+.attendance-card:hover .attendance-icon,
+.academic-card:hover .award-icon,
+.fees-card:hover .fees-icon,
+.notice-card:hover .notice-icon,
+.result-card:hover .result-icon,
+.settings-card:hover .settings-card-icon,
+.schedule-card:hover .subject-icon,
+.timetable-card:hover .timetable-icon,
+.activity-list li:hover i,
+.assignment-card:hover .assignment-left i,
+.action-card:hover i,
+.streak-box:hover i,
+.deadline-box:hover i,
+.installment-box:hover i,
+.card-icon:hover,
+.stat-icon:hover,
+.activity-icon:hover,
+.attendance-icon:hover,
+.award-icon:hover,
+.fees-icon:hover,
+.notice-icon:hover,
+.present-icon:hover,
+.report-icon:hover,
+.result-icon:hover,
+.settings-card-icon:hover,
+.streak-icon:hover,
+.subject-icon:hover,
+.timetable-icon:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+        var(--shadow-lg);
+    filter: saturate(1.15);
+}
+
+.card:hover .card-icon i,
+.stat-card:hover .stat-icon i,
+.assignment-stat-card:hover .stat-icon i,
+.activity-card:hover .activity-icon i,
+.attendance-card:hover .attendance-icon i,
+.fees-card:hover .fees-icon i,
+.notice-card:hover .notice-icon i,
+.result-card:hover .result-icon i,
+.settings-card:hover .settings-card-icon i,
+.timetable-card:hover .timetable-icon i,
+.card-icon:hover i,
+.stat-icon:hover i,
+.activity-icon:hover i,
+.attendance-icon:hover i,
+.fees-icon:hover i,
+.notice-icon:hover i,
+.result-icon:hover i,
+.settings-card-icon:hover i,
+.subject-icon:hover i,
+.timetable-icon:hover i {
+    transform: rotate(-6deg) scale(1.08);
+    transition: transform var(--transition-normal);
+}
+
+.card-icon i,
+.stat-icon i,
+.activity-icon i,
+.attendance-icon i,
+.fees-icon i,
+.notice-icon i,
+.result-icon i,
+.settings-card-icon i,
+.subject-icon i,
+.timetable-icon i {
+    transition: transform var(--transition-normal);
+}
+
+/* Dark mode: the white inner ring and gloss read too strong on dark
+   surfaces, so soften them to a faint light edge. */
+[data-theme="dark"] .card-icon,
+[data-theme="dark"] .stat-icon,
+[data-theme="dark"] .activity-icon,
+[data-theme="dark"] .attendance-icon,
+[data-theme="dark"] .award-icon,
+[data-theme="dark"] .fees-icon,
+[data-theme="dark"] .notice-icon,
+[data-theme="dark"] .present-icon,
+[data-theme="dark"] .report-icon,
+[data-theme="dark"] .result-icon,
+[data-theme="dark"] .settings-card-icon,
+[data-theme="dark"] .streak-icon,
+[data-theme="dark"] .subject-icon,
+[data-theme="dark"] .timetable-icon,
+[data-theme="dark"] .activity-list li i,
+[data-theme="dark"] .assignment-left i,
+[data-theme="dark"] .action-card i,
+[data-theme="dark"] .streak-box i,
+[data-theme="dark"] .deadline-box i,
+[data-theme="dark"] .installment-box i {
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        var(--shadow-sm);
+}
+
+[data-theme="dark"] .card-icon::after,
+[data-theme="dark"] .stat-icon::after,
+[data-theme="dark"] .activity-icon::after,
+[data-theme="dark"] .attendance-icon::after,
+[data-theme="dark"] .award-icon::after,
+[data-theme="dark"] .fees-icon::after,
+[data-theme="dark"] .notice-icon::after,
+[data-theme="dark"] .present-icon::after,
+[data-theme="dark"] .report-icon::after,
+[data-theme="dark"] .result-icon::after,
+[data-theme="dark"] .settings-card-icon::after,
+[data-theme="dark"] .streak-icon::after,
+[data-theme="dark"] .subject-icon::after,
+[data-theme="dark"] .timetable-icon::after {
+    background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0) 55%
+    );
+}

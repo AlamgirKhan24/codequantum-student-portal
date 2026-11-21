@@ -8,9 +8,11 @@
 @import url("./components/badges.css");
 @import url("./components/buttons.css");
 @import url("./components/cards.css");
+@import url("./components/icons.css");
 @import url("./components/forms.css");
 @import url("./components/modal.css");
 @import url("./components/tables.css");
+@import url("./components/toast.css");
 
 /* layout */
 
@@ -27,6 +29,9 @@
 @import url("./pages/attendance.css");
 @import url("./pages/timetable.css");
 @import url("./pages/results.css");
+@import url("./pages/fees.css");
+@import url("./pages/notices.css");
+@import url("./pages/settings.css");
 
 /* responsive */
 

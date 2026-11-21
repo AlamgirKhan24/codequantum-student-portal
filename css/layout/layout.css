@@ -52,3 +52,20 @@
     margin-left: 0;
     width: 100%;
 }
+
+
+/* ===========================================================
+   Mobile Sidebar Backdrop
+   (dim layer behind the slide-in sidebar; shown only when
+    .app has .sidebar-open, controlled in tablet.css media query)
+=========================================================== */
+
+.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    z-index: calc(var(--z-modal) - 1);
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}

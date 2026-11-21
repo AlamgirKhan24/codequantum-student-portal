@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices | CodeQuantum Student Portal</title>
+
+    <!-- Apply saved theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cq_theme');
+                if (t) document.documentElement.setAttribute('data-theme', JSON.parse(t));
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <div class="atom-logo">
+
+                    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+
+                        <ellipse cx="120" cy="100" rx="100" ry="40" fill="none" stroke="#a78bfa" stroke-width="6"
+                            transform="rotate(60 120 100)" />
+                        <ellipse cx="120" cy="100" rx="100" ry="40" fill="none" stroke="#8b7ff0" stroke-width="6"
+                            transform="rotate(-60 120 100)" />
+                        <ellipse cx="120" cy="100" rx="100" ry="40" fill="none" stroke="#c7d2fe" stroke-width="4" />
+
+                        <circle cx="16" cy="118" r="9" fill="#7c3aed" />
+                        <circle cx="222" cy="82" r="9" fill="#5b6ee8" />
+
+                        <g transform="translate(120,100)">
+                            <text x="-38" y="8" font-family="Menlo, Consolas, monospace" font-size="34"
+                                font-weight="600" fill="#1e2144">&lt;</text>
+                            <circle cx="0" cy="0" r="6" fill="#1e2144" />
+                            <text x="18" y="8" font-family="Menlo, Consolas, monospace" font-size="34" font-weight="600"
+                                fill="#1e2144">&gt;</text>
+                        </g>
+
+                    </svg>
+
+                </div>
+
+                <div class="logo-text">
+                    <h1>CodeQuantum</h1>
+                    <p>Student Portal</p>
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <h3 class="menu-title">MENU</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="assignments.html">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>Assignments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="attendance.html">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="timetables.html">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Timetable</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="results.html">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Results</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fees.html">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Fees</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="notices.html" class="active" aria-current="page">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <span>Notices</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="settings.html">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="logout">
+                <button type="button">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="header">
+
+                <div class="header-left">
+                    <button type="button" id="menuToggle" class="menu-toggle" aria-label="Open Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="Search notices..." aria-label="Search">
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button type="button" class="icon-button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button type="button" id="themeToggle" class="icon-button" aria-label="Toggle Theme">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                    <div class="profile">
+                        <div class="profile-avatar">AK</div>
+                        <div class="profile-info">
+                            <h4>Alamgir Khan</h4>
+                            <p>Frontend Student</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- Notices -->
+            <section class="notices-page">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Notices
+                            <span class="notices-unread-badge" id="noticesUnreadBadge">3</span>
+                        </h2>
+                        <p>You have <strong id="unreadCount">0</strong> unread notices. Tap a notice to mark it read.</p>
+                    </div>
+                    <button type="button" class="primary-btn" id="markAllReadBtn">
+                        <i class="fa-solid fa-check-double"></i>
+                        Mark all read
+                    </button>
+                </div>
+
+                <!-- Filters -->
+                <div class="notices-filters" role="tablist" aria-label="Filter notices by category">
+                    <button type="button" class="notices-filter active" data-filter="all">All</button>
+                    <button type="button" class="notices-filter" data-filter="academic">Academic</button>
+                    <button type="button" class="notices-filter" data-filter="events">Events</button>
+                    <button type="button" class="notices-filter" data-filter="fees">Fees</button>
+                    <button type="button" class="notices-filter" data-filter="general">General</button>
+                </div>
+
+                <!-- Feed (rendered by notices.js) -->
+                <div class="notices-feed" id="noticesFeed"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/toast.js"></script>
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/notices.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

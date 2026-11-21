@@ -7,6 +7,22 @@
     <meta name="description" content="CodeQuantum Student Portal — view and manage your personal and academic information.">
     <title>CodeQuantum Student Portal - Profile</title>
 
+    <!-- Apply saved theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cq_theme');
+                if (t) document.documentElement.setAttribute('data-theme', JSON.parse(t));
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
@@ -142,6 +158,20 @@
                         <a href="fees.html">
                             <i class="fa-solid fa-wallet"></i>
                             <span>Fees</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="notices.html">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <span>Notices</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="settings.html">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
                         </a>
                     </li>
 
@@ -457,6 +487,7 @@
     <script src="../js/utils/formatter.js"></script>
 
     <!-- Components -->
+    <script src="../js/components/toast.js"></script>
     <script src="../js/components/navbar.js"></script>
     <script src="../js/components/sidebar.js"></script>
     <script src="../js/components/modal.js"></script>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | CodeQuantum Student Portal</title>
+
+    <!-- Apply saved theme before paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('cq_theme');
+                if (t) document.documentElement.setAttribute('data-theme', JSON.parse(t));
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <div class="atom-logo">
+
+                    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+
+                        <ellipse cx="120" cy="100" rx="100" ry="40" fill="none" stroke="#a78bfa" stroke-width="6"
+                            transform="rotate(60 120 100)" />
+                        <ellipse cx="120" cy="100" rx="100" ry="40" fill="none" stroke="#8b7ff0" stroke-width="6"
+                            transform="rotate(-60 120 100)" />
+                        <ellipse cx="120" cy="100" rx="100" ry="40" fill="none" stroke="#c7d2fe" stroke-width="4" />
+
+                        <circle cx="16" cy="118" r="9" fill="#7c3aed" />
+                        <circle cx="222" cy="82" r="9" fill="#5b6ee8" />
+
+                        <g transform="translate(120,100)">
+                            <text x="-38" y="8" font-family="Menlo, Consolas, monospace" font-size="34"
+                                font-weight="600" fill="#1e2144">&lt;</text>
+                            <circle cx="0" cy="0" r="6" fill="#1e2144" />
+                            <text x="18" y="8" font-family="Menlo, Consolas, monospace" font-size="34" font-weight="600"
+                                fill="#1e2144">&gt;</text>
+                        </g>
+
+                    </svg>
+
+                </div>
+
+                <div class="logo-text">
+                    <h1>CodeQuantum</h1>
+                    <p>Student Portal</p>
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <h3 class="menu-title">MENU</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="../index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="courses.html">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="assignments.html">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>Assignments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="attendance.html">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="timetables.html">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Timetable</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="results.html">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Results</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fees.html">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Fees</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="notices.html">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <span>Notices</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="settings.html" class="active" aria-current="page">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Logout -->
+            <div class="logout">
+                <button type="button">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="header">
+
+                <div class="header-left">
+                    <button type="button" id="menuToggle" class="menu-toggle" aria-label="Open Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="Search settings..." aria-label="Search">
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button type="button" class="icon-button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button type="button" id="themeToggle" class="icon-button" aria-label="Toggle Theme">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                    <div class="profile">
+                        <div class="profile-avatar">AK</div>
+                        <div class="profile-info">
+                            <h4>Alamgir Khan</h4>
+                            <p>Frontend Student</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- Settings -->
+            <section class="settings-page">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Settings</h2>
+                        <p>Manage your account details, security, and appearance preferences.</p>
+                    </div>
+                </div>
+
+                <div class="settings-layout">
+
+                    <!-- Side nav -->
+                    <aside class="settings-nav" aria-label="Settings sections">
+                        <a href="#account" class="settings-nav-link active">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                        <a href="#security" class="settings-nav-link">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>Security</span>
+                        </a>
+                        <a href="#appearance" class="settings-nav-link">
+                            <i class="fa-solid fa-palette"></i>
+                            <span>Appearance</span>
+                        </a>
+                    </aside>
+
+                    <div class="settings-sections">
+
+                        <!-- Account -->
+                        <div class="settings-card" id="account">
+
+                            <div class="settings-card-head">
+                                <div class="settings-card-icon">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div>
+                                    <h3>Account Information</h3>
+                                    <p>Update your name and how we reach you.</p>
+                                </div>
+                            </div>
+
+                            <form id="profileForm" novalidate>
+
+                                <div class="form-group">
+                                    <label for="profileName">Full Name</label>
+                                    <input type="text" id="profileName" placeholder="Alamgir Khan"
+                                        autocomplete="name">
+                                    <p class="field-error" data-error-for="profileName"></p>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profileEmail">Email Address</label>
+                                        <input type="email" id="profileEmail" placeholder="you@codequantum.dev"
+                                            autocomplete="email">
+                                        <p class="field-error" data-error-for="profileEmail"></p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="profilePhone">Phone <span class="optional">(optional)</span></label>
+                                        <input type="text" id="profilePhone" placeholder="+1 555 000 1234"
+                                            autocomplete="tel">
+                                        <p class="field-error" data-error-for="profilePhone"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <p class="form-status" id="profileFormStatus" role="status" aria-live="polite"></p>
+                                    <button type="button" class="primary-btn" id="saveProfileBtn">
+                                        <i class="fa-solid fa-floppy-disk"></i>
+                                        Save Changes
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <!-- Security -->
+                        <div class="settings-card" id="security">
+
+                            <div class="settings-card-head">
+                                <div class="settings-card-icon security">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <div>
+                                    <h3>Password &amp; Security</h3>
+                                    <p>Choose a strong password you don't use elsewhere.</p>
+                                </div>
+                            </div>
+
+                            <form id="passwordForm" novalidate>
+
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword" placeholder="••••••••"
+                                        autocomplete="current-password">
+                                    <p class="field-error" data-error-for="currentPassword"></p>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="newPassword">New Password</label>
+                                        <input type="password" id="newPassword" placeholder="At least 8 characters"
+                                            autocomplete="new-password">
+                                        <p class="field-error" data-error-for="newPassword"></p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm New Password</label>
+                                        <input type="password" id="confirmPassword" placeholder="Re-enter new password"
+                                            autocomplete="new-password">
+                                        <p class="field-error" data-error-for="confirmPassword"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <p class="form-status" id="passwordFormStatus" role="status" aria-live="polite"></p>
+                                    <button type="button" class="primary-btn" id="changePasswordBtn">
+                                        <i class="fa-solid fa-key"></i>
+                                        Update Password
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <!-- Appearance -->
+                        <div class="settings-card" id="appearance">
+
+                            <div class="settings-card-head">
+                                <div class="settings-card-icon appearance">
+                                    <i class="fa-solid fa-palette"></i>
+                                </div>
+                                <div>
+                                    <h3>Appearance</h3>
+                                    <p>Pick the theme that's easiest on your eyes.</p>
+                                </div>
+                            </div>
+
+                            <div class="theme-options">
+
+                                <label class="theme-option">
+                                    <input type="radio" name="themePreference" value="light">
+                                    <span class="theme-swatch light">
+                                        <i class="fa-solid fa-sun"></i>
+                                    </span>
+                                    <span class="theme-label">
+                                        <strong>Light</strong>
+                                        <small>Bright and clean</small>
+                                    </span>
+                                </label>
+
+                                <label class="theme-option">
+                                    <input type="radio" name="themePreference" value="dark">
+                                    <span class="theme-swatch dark">
+                                        <i class="fa-solid fa-moon"></i>
+                                    </span>
+                                    <span class="theme-label">
+                                        <strong>Dark</strong>
+                                        <small>Dim for low light</small>
+                                    </span>
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Config -->
+    <script src="../js/config/config.js"></script>
+
+    <!-- Utils -->
+    <script src="../js/utils/constants.js"></script>
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/formatter.js"></script>
+
+    <!-- Components -->
+    <script src="../js/components/toast.js"></script>
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/modal.js"></script>
+
+    <!-- Pages -->
+    <script src="../js/pages/settings.js"></script>
+
+    <!-- App -->
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

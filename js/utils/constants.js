@@ -12,19 +12,19 @@
 // Keep these in sync with the CSS status/badge modifier classes
 // (.status.present/.absent/.leave, .payment-status.paid/.pending, etc.)
 // ---------------------------------------------------------------
-export const ATTENDANCE_STATUS = Object.freeze({
+const ATTENDANCE_STATUS = Object.freeze({
     PRESENT: 'present',
     ABSENT: 'absent',
     LEAVE: 'leave',
 });
 
-export const PAYMENT_STATUS = Object.freeze({
+const PAYMENT_STATUS = Object.freeze({
     PAID: 'paid',
     PENDING: 'pending',
     OVERDUE: 'overdue',
 });
 
-export const ASSIGNMENT_STATUS = Object.freeze({
+const ASSIGNMENT_STATUS = Object.freeze({
     SUBMITTED: 'submitted',
     PENDING: 'pending',
     OVERDUE: 'overdue',
@@ -34,16 +34,16 @@ export const ASSIGNMENT_STATUS = Object.freeze({
 // ---------------------------------------------------------------
 // Calendar / scheduling
 // ---------------------------------------------------------------
-export const DAYS_OF_WEEK = Object.freeze([
+const DAYS_OF_WEEK = Object.freeze([
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
 ]);
 
-export const WEEKDAYS_SHORT = Object.freeze([
+const WEEKDAYS_SHORT = Object.freeze([
     'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
 ]);
 
 // Matches the columns used in timetable.html's weekly schedule table
-export const TIMETABLE_DAYS = Object.freeze([
+const TIMETABLE_DAYS = Object.freeze([
     'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
 ]);
 
@@ -52,7 +52,7 @@ export const TIMETABLE_DAYS = Object.freeze([
 // (.html-class/.css-class/.js-class/.react-class/.ui-class in timetable.css,
 // .html-progress/.css-progress/.js-progress/.react-progress in results.css)
 // ---------------------------------------------------------------
-export const SUBJECTS = Object.freeze({
+const SUBJECTS = Object.freeze({
     HTML: { key: 'html', label: 'HTML Fundamentals' },
     CSS: { key: 'css', label: 'CSS Mastery' },
     JS: { key: 'js', label: 'JavaScript' },
@@ -63,7 +63,7 @@ export const SUBJECTS = Object.freeze({
 // ---------------------------------------------------------------
 // Grades (results.js)
 // ---------------------------------------------------------------
-export const GRADE_SCALE = Object.freeze([
+const GRADE_SCALE = Object.freeze([
     { min: 90, grade: 'A+' },
     { min: 85, grade: 'A' },
     { min: 80, grade: 'A-' },
@@ -78,7 +78,7 @@ export const GRADE_SCALE = Object.freeze([
 // Fee breakdown categories (fees.js) — keys match .tuition-fill/.library-fill/
 // .lab-fill/.transport-fill class suffixes in fees.css
 // ---------------------------------------------------------------
-export const FEE_CATEGORIES = Object.freeze({
+const FEE_CATEGORIES = Object.freeze({
     TUITION: 'tuition',
     LIBRARY: 'library',
     LAB: 'lab',
@@ -90,7 +90,7 @@ export const FEE_CATEGORIES = Object.freeze({
 // sidebar.js can render or highlight the active link programmatically
 // instead of relying only on hardcoded HTML + aria-current per page.
 // ---------------------------------------------------------------
-export const NAV_ITEMS = Object.freeze([
+const NAV_ITEMS = Object.freeze([
     { key: 'dashboard', label: 'Dashboard', href: '../index.html', icon: 'fa-solid fa-house' },
     { key: 'profile', label: 'Profile', href: 'profile.html', icon: 'fa-solid fa-user' },
     { key: 'courses', label: 'Courses', href: 'courses.html', icon: 'fa-solid fa-book-open' },
@@ -104,7 +104,7 @@ export const NAV_ITEMS = Object.freeze([
 // ---------------------------------------------------------------
 // Misc UI text
 // ---------------------------------------------------------------
-export const UI_TEXT = Object.freeze({
+const UI_TEXT = Object.freeze({
     noDataFallback: '—',
     loading: 'Loading…',
     genericError: 'Something went wrong. Please try again.',
